@@ -84,7 +84,7 @@
 (require 'dired-x)
 
 ;; Installed libraries:
-(load-file "~/.emacs.d/replete.el")
+(load-file "~/.emacs.d/replete.el") ;; https://github.com/jamesdiacono/Replete/issues/5
 
 ;; Additional (manual) customization:
 (setq-default electric-indent-inhibit t)
