@@ -4,6 +4,7 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(auto-revert-verbose nil)
  '(backup-by-copying t)
  '(backup-directory-alist '((".*" . "~/.emacs_backups/")))
  '(c-default-style
