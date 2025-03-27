@@ -145,6 +145,7 @@
 (keymap-global-set "C-z" 'undo)
 (keymap-global-set "S-<down-mouse-1>" 'mouse-save-then-kill) ;; https://superuser.com/a/522183
 (keymap-global-set "S-<mouse-1>" 'ignore-preserving-kill-region)
+(keymap-global-set "C-c b" 'bury-buffer)
 (keymap-global-set "C-c s" 'visit-temp-file)
 (keymap-global-set "C-c t" 'bash-term) ;; same as Crux
 (keymap-global-set "C-c r" 'rename-visited-file) ;; same as Crux
