@@ -154,7 +154,7 @@
 (keymap-global-set "C-c s" 'visit-temp-file)
 (keymap-global-set "C-c t" 'bash-term) ;; same as Crux
 (keymap-global-set "C-c r" 'rename-visited-file) ;; same as Crux
-(keymap-global-set "C-x 4 C-b" 'display-current-buffer-other-window)
+(keymap-global-set "C-c w" 'display-current-buffer-other-window)
 (add-hook 'js-ts-mode-hook
 	  (lambda ()
 	    (keymap-local-set "C-x C-e" 'replete-browser)))
