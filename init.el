@@ -48,7 +48,9 @@
  '(mark-even-if-inactive nil)
  '(mode-line-percent-position nil)
  '(mouse-drag-mode-line-buffer t)
+ '(mouse-wheel-flip-direction t)
  '(mouse-wheel-progressive-speed nil)
+ '(mouse-wheel-tilt-scroll t)
  '(package-selected-packages '(corfu dape markdown-mode))
  '(pixel-scroll-precision-interpolate-mice nil)
  '(pixel-scroll-precision-mode t)
@@ -143,6 +145,27 @@
   (setq replete-cwd (project-root (project-current t)))
   (replete-start)
   (switch-to-buffer-other-window "*replete*"))
+;; https://def.lakaban.net/2023-03-05-high-quality-scrolling-emacs/
+(defun filter-mwheel-always-coalesce (orig &rest args)
+  "A filter function suitable for :around advices that ensures only
+   coalesced scroll events reach the advised function."
+  (if mwheel-coalesce-scroll-events
+      (apply orig args)
+    (setq mwheel-coalesce-scroll-events t)))
+(defun filter-mwheel-never-coalesce (orig &rest args)
+  "A filter function suitable for :around advices that ensures only
+   non-coalesced scroll events reach the advised function."
+  (if mwheel-coalesce-scroll-events
+      (setq mwheel-coalesce-scroll-events nil)
+    (apply orig args)))
+
+;; Advice:
+;; https://def.lakaban.net/2023-03-05-high-quality-scrolling-emacs/
+(advice-add 'pixel-scroll-precision :around #'filter-mwheel-never-coalesce)
+(advice-add 'mwheel-scroll          :around #'filter-mwheel-always-coalesce)
+(advice-add 'mouse-wheel-text-scale :around #'filter-mwheel-always-coalesce)
+(advice-add 'tab-line-hscroll-left  :around #'filter-mwheel-always-coalesce)
+(advice-add 'tab-line-hscroll-right :around #'filter-mwheel-always-coalesce)
 
 ;; Key bindings:
 (keymap-global-set "C-z" 'undo)
