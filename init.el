@@ -129,6 +129,9 @@
 (add-hook 'css-ts-mode-hook
 	  (lambda ()
 	    (corfu-mode t)))
+(add-hook 'python-mode-hook
+	  (lambda ()
+	   (setq tab-width 4)))
 
 ;; Commands:
 (defun display-current-buffer-other-window ()
