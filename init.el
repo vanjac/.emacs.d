@@ -43,7 +43,7 @@
  '(icon-map-list nil)
  '(inhibit-startup-screen t)
  '(initial-buffer-choice t)
- '(isearch-allow-scroll t)
+ '(isearch-allow-scroll 'unlimited)
  '(isearch-lazy-count t)
  '(mark-even-if-inactive nil)
  '(mode-line-percent-position nil)
