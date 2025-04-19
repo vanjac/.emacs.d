@@ -109,6 +109,8 @@
 ;; Mode overrides:
 (push '("\\.m?js\\'" . js-ts-mode) auto-mode-alist)
 (push '("\\.css\\'" . css-ts-mode) auto-mode-alist)
+(push '("\\.yaml\\'" . yaml-ts-mode) auto-mode-alist)
+(push '("\\.lua\\'" . lua-ts-mode) auto-mode-alist)
 
 ;; Hooks:
 (add-hook 'dired-mode-hook
