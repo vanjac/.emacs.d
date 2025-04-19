@@ -119,6 +119,9 @@
 (add-hook 'prog-mode-hook
 	  (lambda ()
 	    (display-line-numbers-mode 1)))
+(add-hook 'comint-mode-hook
+	  (lambda ()
+	    (setq tab-width 8)))
 (add-hook 'emacs-lisp-mode-hook
 	  (lambda ()
 	    (setq tab-width 8)))
