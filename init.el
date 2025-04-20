@@ -46,6 +46,7 @@
  '(isearch-allow-scroll 'unlimited)
  '(isearch-lazy-count t)
  '(mark-even-if-inactive nil)
+ '(markdown-enable-wiki-links t)
  '(mode-line-percent-position nil)
  '(mouse-drag-mode-line-buffer t)
  '(mouse-wheel-flip-direction t)
