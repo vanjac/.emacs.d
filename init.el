@@ -109,10 +109,11 @@
 ;; Mode overrides:
 (push '("\\.m?js\\'" . js-ts-mode) auto-mode-alist)
 (push '("\\.css\\'" . css-ts-mode) auto-mode-alist)
-(push '("\\.yaml\\'" . yaml-ts-mode) auto-mode-alist)
+(push '("\\.ya?ml\\'" . yaml-ts-mode) auto-mode-alist)
 (push '("\\.lua\\'" . lua-ts-mode) auto-mode-alist)
 
 ;; Hooks:
+(add-hook 'comint-output-filter-functions 'comint-osc-process-output)
 (add-hook 'dired-mode-hook
 	  (lambda ()
 	    (dired-hide-details-mode t)))
@@ -145,9 +146,6 @@
 (defun visit-temp-file ()
   (interactive)
   (find-file (make-temp-file "scratch")))
-(defun bash-term ()
-  (interactive)
-  (ansi-term "/bin/bash"))
 (defun replete-start-here ()
   (interactive)
   (setq replete-cwd (project-root (project-current t)))
@@ -183,7 +181,7 @@
 (keymap-global-set "C-<iso-lefttab>" 'next-buffer)
 (keymap-global-set "C-c b" 'bury-buffer)
 (keymap-global-set "C-c s" 'visit-temp-file)
-(keymap-global-set "C-c t" 'bash-term) ;; same as Crux
+(keymap-global-set "C-c t" 'shell) ;; same as Crux
 (keymap-global-set "C-c r" 'rename-visited-file) ;; same as Crux
 (keymap-global-set "C-c w" 'display-current-buffer-other-window)
 (add-hook 'js-ts-mode-hook
