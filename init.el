@@ -157,15 +157,25 @@
 (defun mouse-drag-buffer (event)
   "Drag the buffer name in the mode line to another window or a new frame."
   (interactive "e")
+  (mouse-drag-buffer-impl event nil))
+(defun mouse-move-buffer (event)
+  "Drag the buffer name in the mode line to another window or a new frame.
+   Close the buffer in the previous window"
+  (interactive "e")
+  (mouse-drag-buffer-impl event t))
+(defun mouse-drag-buffer-impl (event move)
   (if-let* ((window1 (posn-window (event-start event)))
 	    (buffer1 (window-buffer window1))
 	    (mouse-pos (mouse-position))
 	    (frame2 (car mouse-pos))
 	    (x2 (cadr mouse-pos))
 	    (y2 (cddr mouse-pos)))
-      (if-let* ((window2 (window-at x2 y2 frame2)))
-	  (set-window-buffer window2 buffer1))
-    (display-buffer buffer1 '(display-buffer-pop-up-frame))))
+      (when-let* ((window2 (window-at x2 y2 frame2)))
+	  (set-window-buffer window2 buffer1)
+	  (when (and move (not (eq window1 window2)))
+	    (switch-to-prev-buffer window1 'bury)))
+    (display-buffer buffer1 '(display-buffer-pop-up-frame))
+    (when move (switch-to-prev-buffer window1 'bury))))
 ;; https://def.lakaban.net/2023-03-05-high-quality-scrolling-emacs/
 (defun filter-mwheel-always-coalesce (orig &rest args)
   "A filter function suitable for :around advices that ensures only
@@ -195,7 +205,7 @@
 (keymap-global-set "S-<mouse-1>" 'ignore-preserving-kill-region)
 (keymap-global-set "C-<tab>" 'previous-buffer)
 (keymap-global-set "C-<iso-lefttab>" 'next-buffer)
-(keymap-global-set "C-c b" 'bury-buffer)
+(keymap-global-set "C-c w" 'bury-buffer)
 (keymap-global-set "C-c t" 'visit-temp-file)
 (keymap-global-set "C-c s" 'shell)
 (keymap-global-set "C-c r" 'rename-visited-file) ;; same as Crux
@@ -205,7 +215,8 @@
 (keymap-global-set "<mode-line> C-<mouse-1>" 'tear-off-window)
 (keymap-set dired-mode-map "<mouse-2>" 'dired-mouse-find-file)
 (keymap-set mode-line-buffer-identification-keymap "<mode-line> <down-mouse-1>" 'ignore)
-(keymap-set mode-line-buffer-identification-keymap "<mode-line> <drag-mouse-1>" 'mouse-drag-buffer)
+(keymap-set mode-line-buffer-identification-keymap "<mode-line> <drag-mouse-1>" 'mouse-move-buffer)
+(keymap-set mode-line-buffer-identification-keymap "<mode-line> C-<drag-mouse-1>" 'mouse-drag-buffer)
 (add-hook 'js-ts-mode-hook
 	  (lambda ()
 	    (keymap-local-set "C-x C-e" 'replete-browser)))
