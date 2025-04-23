@@ -64,7 +64,7 @@
  '(speedbar-show-unknown-files t)
  '(tab-line-exclude-modes '(completion-list-mode ediff-mode))
  '(tab-width 4)
- '(tool-bar-style 'both-horiz)
+ '(tool-bar-mode nil)
  '(treesit-font-lock-level 4)
  '(which-key-allow-imprecise-window-fit nil)
  '(which-key-lighter "")
@@ -176,6 +176,7 @@
 
 ;; Key bindings:
 (keymap-global-set "C-z" 'undo)
+(keymap-global-set "C-x k" 'kill-current-buffer)
 (keymap-global-set "S-<down-mouse-1>" 'mouse-save-then-kill) ;; https://superuser.com/a/522183
 (keymap-global-set "S-<mouse-1>" 'ignore-preserving-kill-region)
 (keymap-global-set "C-<tab>" 'previous-buffer)
@@ -184,6 +185,7 @@
 (keymap-global-set "C-c s" 'visit-temp-file)
 (keymap-global-set "C-c t" 'shell) ;; same as Crux
 (keymap-global-set "C-c r" 'rename-visited-file) ;; same as Crux
+(keymap-global-set "C-c f" 'recentf-open) ;; same as Crux
 (keymap-global-set "C-c w" 'display-current-buffer-other-window)
 (add-hook 'js-ts-mode-hook
 	  (lambda ()
