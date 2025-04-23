@@ -152,6 +152,9 @@
   (setq replete-cwd (project-root (project-current t)))
   (replete-start)
   (switch-to-buffer-other-window "*replete*"))
+(defun set-frame-name-project ()
+  (interactive)
+  (set-frame-name (concat "<" (project-name (project-current)) ">")))
 ;; https://def.lakaban.net/2023-03-05-high-quality-scrolling-emacs/
 (defun filter-mwheel-always-coalesce (orig &rest args)
   "A filter function suitable for :around advices that ensures only
@@ -187,10 +190,12 @@
 (keymap-global-set "C-c r" 'rename-visited-file) ;; same as Crux
 (keymap-global-set "C-c f" 'recentf-open) ;; same as Crux
 (keymap-global-set "C-c w" 'display-current-buffer-other-window)
+(keymap-global-set "C-c p" 'set-frame-name-project)
+(keymap-global-set "<mode-line> C-<mouse-1>" 'tear-off-window)
+(keymap-set dired-mode-map "<mouse-2>" 'dired-mouse-find-file)
 (add-hook 'js-ts-mode-hook
 	  (lambda ()
 	    (keymap-local-set "C-x C-e" 'replete-browser)))
-(keymap-set dired-mode-map "<mouse-2>" 'dired-mouse-find-file)
 
 ;; Formatting:
 (c-add-style "chroma"
