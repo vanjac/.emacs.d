@@ -155,6 +155,9 @@
 (defun set-frame-name-project ()
   (interactive)
   (set-frame-name (concat "<" (project-name (project-current)) ">")))
+(defun reset-frame-name ()
+  (interactive)
+  (set-frame-name nil))
 ;; https://def.lakaban.net/2023-03-05-high-quality-scrolling-emacs/
 (defun filter-mwheel-always-coalesce (orig &rest args)
   "A filter function suitable for :around advices that ensures only
@@ -191,6 +194,7 @@
 (keymap-global-set "C-c f" 'recentf-open) ;; same as Crux
 (keymap-global-set "C-c w" 'display-current-buffer-other-window)
 (keymap-global-set "C-c p" 'set-frame-name-project)
+(keymap-global-set "C-c P" 'reset-frame-name)
 (keymap-global-set "<mode-line> C-<mouse-1>" 'tear-off-window)
 (keymap-set dired-mode-map "<mouse-2>" 'dired-mouse-find-file)
 (add-hook 'js-ts-mode-hook
