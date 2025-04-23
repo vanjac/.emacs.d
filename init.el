@@ -48,7 +48,6 @@
  '(mark-even-if-inactive nil)
  '(markdown-enable-wiki-links t)
  '(mode-line-percent-position nil)
- '(mouse-drag-mode-line-buffer t)
  '(mouse-wheel-flip-direction t)
  '(mouse-wheel-progressive-speed nil)
  '(mouse-wheel-tilt-scroll t)
@@ -141,9 +140,6 @@
 	   (setq tab-width 4)))
 
 ;; Commands:
-(defun display-current-buffer-other-window ()
-  (interactive)
-  (switch-to-buffer-other-window (current-buffer)))
 (defun visit-temp-file ()
   (interactive)
   (find-file (make-temp-file "scratch")))
@@ -158,6 +154,18 @@
 (defun reset-frame-name ()
   (interactive)
   (set-frame-name nil))
+(defun mouse-drag-buffer (event)
+  "Drag the buffer name in the mode line to another window or a new frame."
+  (interactive "e")
+  (if-let* ((window1 (posn-window (event-start event)))
+	    (buffer1 (window-buffer window1))
+	    (mouse-pos (mouse-position))
+	    (frame2 (car mouse-pos))
+	    (x2 (cadr mouse-pos))
+	    (y2 (cddr mouse-pos)))
+      (if-let* ((window2 (window-at x2 y2 frame2)))
+	  (set-window-buffer window2 buffer1))
+    (display-buffer buffer1 '(display-buffer-pop-up-frame))))
 ;; https://def.lakaban.net/2023-03-05-high-quality-scrolling-emacs/
 (defun filter-mwheel-always-coalesce (orig &rest args)
   "A filter function suitable for :around advices that ensures only
@@ -188,15 +196,16 @@
 (keymap-global-set "C-<tab>" 'previous-buffer)
 (keymap-global-set "C-<iso-lefttab>" 'next-buffer)
 (keymap-global-set "C-c b" 'bury-buffer)
-(keymap-global-set "C-c s" 'visit-temp-file)
-(keymap-global-set "C-c t" 'shell) ;; same as Crux
+(keymap-global-set "C-c t" 'visit-temp-file)
+(keymap-global-set "C-c s" 'shell)
 (keymap-global-set "C-c r" 'rename-visited-file) ;; same as Crux
 (keymap-global-set "C-c f" 'recentf-open) ;; same as Crux
-(keymap-global-set "C-c w" 'display-current-buffer-other-window)
 (keymap-global-set "C-c p" 'set-frame-name-project)
 (keymap-global-set "C-c P" 'reset-frame-name)
 (keymap-global-set "<mode-line> C-<mouse-1>" 'tear-off-window)
 (keymap-set dired-mode-map "<mouse-2>" 'dired-mouse-find-file)
+(keymap-set mode-line-buffer-identification-keymap "<mode-line> <down-mouse-1>" 'ignore)
+(keymap-set mode-line-buffer-identification-keymap "<mode-line> <drag-mouse-1>" 'mouse-drag-buffer)
 (add-hook 'js-ts-mode-hook
 	  (lambda ()
 	    (keymap-local-set "C-x C-e" 'replete-browser)))
