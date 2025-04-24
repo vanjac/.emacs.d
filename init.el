@@ -59,8 +59,6 @@
  '(recentf-mode t)
  '(sentence-end-double-space nil)
  '(server-stop-automatically 'delete-frame)
- '(speedbar-query-confirmation-method 'none-but-delete)
- '(speedbar-show-unknown-files t)
  '(tab-line-exclude-modes '(completion-list-mode ediff-mode))
  '(tab-width 4)
  '(tool-bar-mode nil)
@@ -243,3 +241,11 @@
   "function " _ "() {" ?\n
   "\t" ?\n
   "}" "\n")
+
+;; Enabled commands
+(put 'set-goal-column 'disabled nil)
+(put 'narrow-to-region 'disabled nil)
+(put 'upcase-region 'disabled nil)
+(put 'downcase-region 'disabled nil)
+(put 'scroll-left 'disabled nil)
+(put 'dired-find-alternate-file 'disabled nil)
