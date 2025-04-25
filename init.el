@@ -10,6 +10,7 @@
  '(c-default-style
    '((java-mode . "java") (awk-mode . "awk") (other . "chroma")))
  '(column-number-mode t)
+ '(comint-scroll-show-maximum-output nil)
  '(comint-terminfo-terminal "dumb-emacs-term-color")
  '(context-menu-mode t)
  '(corfu-auto t)
