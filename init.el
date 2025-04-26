@@ -209,6 +209,7 @@
 (keymap-global-set "C-<tab>" 'previous-buffer)
 (keymap-global-set "C-<iso-lefttab>" 'next-buffer)
 (keymap-global-set "C-c <delete>" 'delete-pair)
+(keymap-global-set "C-c g" 'revert-buffer)
 (keymap-global-set "C-c w" 'bury-buffer)
 (keymap-global-set "C-c t" 'visit-temp-file)
 (keymap-global-set "C-c s" 'shell)
