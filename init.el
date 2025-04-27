@@ -7,6 +7,7 @@
  '(auto-revert-verbose nil)
  '(backup-by-copying t)
  '(backup-directory-alist '((".*" . "~/.emacs_backups/")))
+ '(backward-delete-char-untabify-method nil)
  '(c-default-style
    '((java-mode . "java") (awk-mode . "awk") (other . "chroma")))
  '(column-number-mode t)
@@ -47,7 +48,7 @@
  '(highlight-nonselected-windows t)
  '(icon-map-list nil)
  '(inhibit-startup-screen t)
- '(initial-buffer-choice t)
+ '(initial-buffer-choice 'recentf-open-files)
  '(isearch-allow-scroll 'unlimited)
  '(isearch-lazy-count t)
  '(mark-even-if-inactive nil)
@@ -200,6 +201,8 @@
 (advice-add 'mouse-wheel-text-scale :around #'filter-mwheel-always-coalesce)
 (advice-add 'tab-line-hscroll-left  :around #'filter-mwheel-always-coalesce)
 (advice-add 'tab-line-hscroll-right :around #'filter-mwheel-always-coalesce)
+(advice-add 'flymake--mode-line-counter-scroll-next :around #'filter-mwheel-always-coalesce)
+(advice-add 'flymake--mode-line-counter-scroll-prev :around #'filter-mwheel-always-coalesce)
 
 ;; Key bindings:
 (keymap-global-set "C-z" 'undo)
