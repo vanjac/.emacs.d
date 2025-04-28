@@ -26,6 +26,8 @@
  '(dired-hide-details-hide-information-lines nil)
  '(dired-hide-details-hide-symlink-targets nil)
  '(dired-listing-switches "-al --group-directories-first")
+ '(dired-recursive-copies 'always)
+ '(dired-recursive-deletes 'always)
  '(display-line-numbers-width 4)
  '(ediff-grab-mouse nil)
  '(ediff-split-window-function 'split-window-horizontally)
