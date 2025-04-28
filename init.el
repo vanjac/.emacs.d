@@ -116,33 +116,6 @@
 (push '("\\.ya?ml\\'" . yaml-ts-mode) auto-mode-alist)
 (push '("\\.lua\\'" . lua-ts-mode) auto-mode-alist)
 
-;; Hooks:
-(add-hook 'comint-output-filter-functions 'comint-osc-process-output)
-(add-hook 'dired-mode-hook
-	  (lambda ()
-	    (dired-hide-details-mode t)))
-(add-hook 'prog-mode-hook
-	  (lambda ()
-	    (display-line-numbers-mode 1)))
-(add-hook 'comint-mode-hook
-	  (lambda ()
-	    (setq tab-width 8)))
-(add-hook 'emacs-lisp-mode-hook
-	  (lambda ()
-	    (setq tab-width 8)))
-(add-hook 'eglot-managed-mode-hook
-	  (lambda ()
-	    (corfu-mode t)))
-(add-hook 'mhtml-mode-hook
-	  (lambda ()
-	    (corfu-mode t)))
-(add-hook 'css-ts-mode-hook
-	  (lambda ()
-	    (corfu-mode t)))
-(add-hook 'python-mode-hook
-	  (lambda ()
-	   (setq tab-width 4)))
-
 ;; Commands:
 (defun visit-temp-file ()
   (interactive)
@@ -204,6 +177,33 @@
     (setq major-mode 'fundamental-mode)
     (setq buffer-undo-list nil) ;; Suppress warning
     (hexl-mode)))
+
+;; Hooks:
+(add-hook 'comint-output-filter-functions 'comint-osc-process-output)
+(add-hook 'dired-mode-hook
+	  (lambda ()
+	    (dired-hide-details-mode t)))
+(add-hook 'prog-mode-hook
+	  (lambda ()
+	    (display-line-numbers-mode 1)))
+(add-hook 'comint-mode-hook
+	  (lambda ()
+	    (setq tab-width 8)))
+(add-hook 'emacs-lisp-mode-hook
+	  (lambda ()
+	    (setq tab-width 8)))
+(add-hook 'eglot-managed-mode-hook
+	  (lambda ()
+	    (corfu-mode t)))
+(add-hook 'mhtml-mode-hook
+	  (lambda ()
+	    (corfu-mode t)))
+(add-hook 'css-ts-mode-hook
+	  (lambda ()
+	    (corfu-mode t)))
+(add-hook 'python-mode-hook
+	  (lambda ()
+	   (setq tab-width 4)))
 (add-hook 'hexl-mode-hook
 	  (lambda ()
 	    (setq-local revert-buffer-function #'better-hexl-revert-buffer-function)))
