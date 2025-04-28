@@ -193,6 +193,20 @@
   (if mwheel-coalesce-scroll-events
       (setq mwheel-coalesce-scroll-events nil)
     (apply orig args)))
+(defun better-hexl-revert-buffer-function (_ignore-auto noconfirm)
+  "Improved version of hexl-revert-buffer-function that preserves the noconfirm option"
+  (let ((coding-system-for-read 'no-conversion)
+	revert-buffer-function)
+    (revert-buffer nil noconfirm t)
+    (remove-hook 'change-major-mode-hook #'hexl-maybe-dehexlify-buffer t)
+    (remove-hook 'eldoc-documentation-functions
+                 #'hexl-print-current-point-info t)
+    (setq major-mode 'fundamental-mode)
+    (setq buffer-undo-list nil) ;; Suppress warning
+    (hexl-mode)))
+(add-hook 'hexl-mode-hook
+	  (lambda ()
+	    (setq-local revert-buffer-function #'better-hexl-revert-buffer-function)))
 
 ;; Advice:
 ;; https://def.lakaban.net/2023-03-05-high-quality-scrolling-emacs/
