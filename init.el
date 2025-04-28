@@ -249,7 +249,8 @@
 	       (c-offsets-alist
 		(arglist-cont-nonempty . +)
 		(arglist-close . 0)
-		(innamespace . 0))
+		(innamespace . 0)
+		(label . 0))
 	       ))
 
 ;; Skeletons:
