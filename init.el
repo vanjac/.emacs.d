@@ -222,6 +222,7 @@
 
 ;; Key bindings:
 (keymap-global-set "C-z" 'undo)
+(keymap-global-set "C-S-z" 'undo-redo)
 (keymap-global-set "C-x k" 'kill-current-buffer)
 (keymap-global-set "S-<down-mouse-1>" 'mouse-save-then-kill) ;; https://superuser.com/a/522183
 (keymap-global-set "S-<mouse-1>" 'ignore-preserving-kill-region)
