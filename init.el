@@ -59,7 +59,7 @@
  '(mouse-wheel-flip-direction t)
  '(mouse-wheel-progressive-speed nil)
  '(mouse-wheel-tilt-scroll t)
- '(package-selected-packages '(corfu dape markdown-mode))
+ '(package-selected-packages '(corfu dape markdown-mode nhexl-mode))
  '(pixel-scroll-precision-interpolate-mice nil)
  '(pixel-scroll-precision-mode t)
  '(project-mode-line t)
@@ -168,17 +168,6 @@
   (if mwheel-coalesce-scroll-events
       (setq mwheel-coalesce-scroll-events nil)
     (apply orig args)))
-(defun better-hexl-revert-buffer-function (_ignore-auto noconfirm)
-  "Improved version of hexl-revert-buffer-function that preserves the noconfirm option"
-  (let ((coding-system-for-read 'no-conversion)
-	revert-buffer-function)
-    (revert-buffer nil noconfirm t)
-    (remove-hook 'change-major-mode-hook #'hexl-maybe-dehexlify-buffer t)
-    (remove-hook 'eldoc-documentation-functions
-                 #'hexl-print-current-point-info t)
-    (setq major-mode 'fundamental-mode)
-    (setq buffer-undo-list nil) ;; Suppress warning
-    (hexl-mode)))
 
 ;; Hooks:
 (add-hook 'comint-output-filter-functions 'comint-osc-process-output)
@@ -206,9 +195,9 @@
 (add-hook 'python-mode-hook
 	  (lambda ()
 	   (setq tab-width 4)))
-(add-hook 'hexl-mode-hook
+(add-hook 'overwrite-mode-hook
 	  (lambda ()
-	    (setq-local revert-buffer-function #'better-hexl-revert-buffer-function)))
+	    (setq-local cursor-type (if overwrite-mode 'box 'bar))))
 
 ;; Advice:
 ;; https://def.lakaban.net/2023-03-05-high-quality-scrolling-emacs/
