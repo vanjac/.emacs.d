@@ -46,6 +46,7 @@
  '(global-auto-revert-non-file-buffers t)
  '(global-hl-line-mode t)
  '(global-tab-line-mode t)
+ '(global-visual-wrap-prefix-mode t)
  '(global-whitespace-mode t)
  '(highlight-nonselected-windows t)
  '(icon-map-list nil)
