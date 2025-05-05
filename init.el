@@ -46,7 +46,6 @@
  '(global-auto-revert-non-file-buffers t)
  '(global-hl-line-mode t)
  '(global-tab-line-mode t)
- '(global-visual-wrap-prefix-mode t)
  '(global-whitespace-mode t)
  '(highlight-nonselected-windows t)
  '(icon-map-list nil)
@@ -178,7 +177,8 @@
 	    (dired-hide-details-mode t)))
 (add-hook 'prog-mode-hook
 	  (lambda ()
-	    (display-line-numbers-mode 1)))
+	    (display-line-numbers-mode 1)
+	    (visual-wrap-prefix-mode 1)))
 (add-hook 'comint-mode-hook
 	  (lambda ()
 	    (setq tab-width 8)))
@@ -200,6 +200,9 @@
 (add-hook 'overwrite-mode-hook
 	  (lambda ()
 	    (setq-local cursor-type (if overwrite-mode 'box 'bar))))
+(add-hook 'nhexl-mode-hook
+	  (lambda ()
+	    (whitespace-mode 1))) ;; fixes weird line wrap bug??
 
 ;; Advice:
 ;; https://def.lakaban.net/2023-03-05-high-quality-scrolling-emacs/
