@@ -98,6 +98,7 @@
 
 ;; Additional (manual) customization:
 (setq-default electric-indent-inhibit t)
+(setq nhexl--put-LF-in-string t) ;; nhexl layout bug
 (setq replete-command
       (list
        "node"
@@ -200,9 +201,6 @@
 (add-hook 'overwrite-mode-hook
 	  (lambda ()
 	    (setq-local cursor-type (if overwrite-mode 'box 'bar))))
-(add-hook 'nhexl-mode-hook
-	  (lambda ()
-	    (whitespace-mode 1))) ;; fixes weird line wrap bug??
 
 ;; Advice:
 ;; https://def.lakaban.net/2023-03-05-high-quality-scrolling-emacs/
@@ -235,6 +233,8 @@
 (keymap-set mode-line-buffer-identification-keymap "<mode-line> <down-mouse-1>" 'ignore)
 (keymap-set mode-line-buffer-identification-keymap "<mode-line> <drag-mouse-1>" 'mouse-move-buffer)
 (keymap-set mode-line-buffer-identification-keymap "<mode-line> C-<drag-mouse-1>" 'mouse-drag-buffer)
+(with-eval-after-load "nhexl-mode"
+  (keymap-set nhexl-mode-map "C-c ." 'nhexl-nibble-edit-mode))
 (add-hook 'js-ts-mode-hook
 	  (lambda ()
 	    (keymap-local-set "C-x C-e" 'replete-browser)))
