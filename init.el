@@ -68,6 +68,7 @@
  '(sentence-end-double-space nil)
  '(server-stop-automatically 'delete-frame)
  '(shell-has-auto-cd t)
+ '(tab-line-close-button-show nil)
  '(tab-line-exclude-modes '(completion-list-mode ediff-mode))
  '(tab-width 4)
  '(tool-bar-mode nil)
