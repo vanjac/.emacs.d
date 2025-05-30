@@ -99,6 +99,7 @@
 
 ;; Additional (manual) customization:
 (setq-default electric-indent-inhibit t)
+(put 'mhtml-mode 'flyspell-mode-predicate #'sgml-mode-flyspell-verify)
 (setq nhexl--put-LF-in-string t) ;; nhexl layout bug
 (setq replete-command
       (list
