@@ -104,7 +104,7 @@
 (setq replete-command
       (list
        "node"
-        "~/code/Replete/replete.js"
+        (expand-file-name "~/code/Replete/replete.js")
         "--browser_port=9325"
         "--content_type=js:text/javascript"
         "--content_type=mjs:text/javascript"
