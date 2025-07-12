@@ -118,6 +118,7 @@
 
 ;; Mode overrides:
 (push '("\\.m?js\\'" . js-ts-mode) auto-mode-alist)
+(push '("\\.ts\\'" . typescript-ts-mode) auto-mode-alist)
 (push '("\\.css\\'" . css-ts-mode) auto-mode-alist)
 (push '("\\.ya?ml\\'" . yaml-ts-mode) auto-mode-alist)
 (push '("\\.lua\\'" . lua-ts-mode) auto-mode-alist)
