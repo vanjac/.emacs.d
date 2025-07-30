@@ -115,7 +115,8 @@
 	"--content_type=woff2:font/woff2"
 	"--content_type=svg:image/svg+xml"
 	"--content_type=png:image/png"
-	"--content_type=webp:image/webp"))
+	"--content_type=webp:image/webp"
+	"--content_type=json:application/json"))
 
 ;; Mode overrides:
 (push '("\\.m?js\\'" . js-ts-mode) auto-mode-alist)
@@ -175,6 +176,17 @@
   (if mwheel-coalesce-scroll-events
       (setq mwheel-coalesce-scroll-events nil)
     (apply orig args)))
+
+;; Skeletons:
+(define-skeleton jsdoc-skeleton "Insert JSDoc multiline comment" nil
+  "/**" _ "*/")
+(define-skeleton js-defun-skeleton "Insert JavaScript function with JSDoc" nil
+  "/**" ?\n
+  " * " ?\n
+  " */" ?\n
+  "function " _ "() {" ?\n
+  "\t" ?\n
+  "}" "\n")
 
 ;; Hooks:
 (add-hook 'comint-output-filter-functions 'comint-osc-process-output)
@@ -241,7 +253,8 @@
   (keymap-set nhexl-mode-map "C-c ." 'nhexl-nibble-edit-mode))
 (add-hook 'js-ts-mode-hook
 	  (lambda ()
-	    (keymap-local-set "C-x C-e" 'replete-browser)))
+	    (keymap-local-set "C-x C-e" 'replete-browser)
+	    (keymap-local-set "C-c /" 'jsdoc-skeleton)))
 
 ;; Formatting:
 (c-add-style "chroma"
@@ -253,19 +266,6 @@
 		(innamespace . 0)
 		(label . 0))
 	       ))
-
-;; Skeletons:
-(define-skeleton jsdoc-skeleton "Insert JSDoc multiline comment" nil
-  "/**" ?\n
-  " * " _ ?\n
-  " */")
-(define-skeleton js-defun-skeleton "Insert JavaScript function with JSDoc" nil
-  "/**" ?\n
-  " * " ?\n
-  " */" ?\n
-  "function " _ "() {" ?\n
-  "\t" ?\n
-  "}" "\n")
 
 ;; Enabled commands
 (put 'set-goal-column 'disabled nil)
