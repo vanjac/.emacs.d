@@ -68,6 +68,7 @@
  '(savehist-mode t)
  '(sentence-end-double-space nil)
  '(server-stop-automatically 'delete-frame)
+ '(set-mark-command-repeat-pop t)
  '(tab-line-close-button-show nil)
  '(tab-line-exclude-modes '(completion-list-mode ediff-mode))
  '(tab-width 4)
@@ -180,13 +181,6 @@
 ;; Skeletons:
 (define-skeleton jsdoc-skeleton "Insert JSDoc comment" nil
   "/**" _ "*/")
-(define-skeleton js-defun-skeleton "Insert JavaScript function with JSDoc" nil
-  "/**" ?\n
-  " * " ?\n
-  " */" ?\n
-  "function " _ "() {" ?\n
-  "\t" ?\n
-  "}" "\n")
 
 ;; Hooks:
 (add-hook 'comint-output-filter-functions 'comint-osc-process-output)
