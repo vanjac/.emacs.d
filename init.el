@@ -52,6 +52,7 @@
  '(icon-map-list nil)
  '(inhibit-startup-screen t)
  '(initial-buffer-choice 'recentf-open-files)
+ '(initial-scratch-message "")
  '(isearch-allow-scroll 'unlimited)
  '(isearch-lazy-count t)
  '(mark-even-if-inactive nil)
@@ -66,6 +67,7 @@
  '(project-mode-line t)
  '(project-vc-merge-submodules nil)
  '(recentf-mode t)
+ '(ring-bell-function 'flash-mode-line)
  '(savehist-mode t)
  '(sentence-end-double-space nil)
  '(server-stop-automatically 'delete-frame)
@@ -178,6 +180,10 @@
   (if mwheel-coalesce-scroll-events
       (setq mwheel-coalesce-scroll-events nil)
     (apply orig args)))
+(defun flash-mode-line ()
+  "Visual bell function from EmacsWiki"
+  (invert-face 'mode-line)
+  (run-with-timer 0.1 nil #'invert-face 'mode-line))
 
 ;; Skeletons:
 (define-skeleton jsdoc-skeleton "Insert JSDoc comment" nil
