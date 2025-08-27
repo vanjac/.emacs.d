@@ -77,9 +77,6 @@
  '(tab-width 4)
  '(tool-bar-mode nil)
  '(treesit-font-lock-level 4)
- '(which-key-allow-imprecise-window-fit nil)
- '(which-key-lighter "")
- '(which-key-mode t)
  '(whitespace-global-modes '(prog-mode))
  '(whitespace-line-column 100)
  '(whitespace-style
