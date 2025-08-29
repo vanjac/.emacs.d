@@ -138,12 +138,10 @@
   (setq replete-cwd (project-root (project-current t)))
   (replete-start)
   (switch-to-buffer-other-window "*replete*"))
-(defun set-frame-name-project ()
-  (interactive)
-  (set-frame-name (concat "<" (project-name (project-current)) ">")))
-(defun reset-frame-name ()
-  (interactive)
-  (set-frame-name nil))
+(defun set-frame-name-project (arg)
+  (interactive "P")
+  (set-frame-name (unless arg
+		      (concat "<" (project-name (project-current)) ">"))))
 (defun mouse-drag-buffer (event)
   "Drag the buffer name in the mode line to another window or a new frame."
   (interactive "e")
@@ -241,10 +239,8 @@
 (keymap-global-set "C-c <delete>" 'delete-pair)
 (keymap-global-set "C-c t" 'visit-temp-file)
 (keymap-global-set "C-c s" 'shell)
-(keymap-global-set "C-c r" 'rename-visited-file) ;; same as Crux
 (keymap-global-set "C-c f" 'recentf-open) ;; same as Crux
-(keymap-global-set "C-c p" 'set-frame-name-project)
-(keymap-global-set "C-c P" 'reset-frame-name)
+(keymap-global-set "C-/ n" 'set-frame-name-project)
 (keymap-global-set "<mode-line> C-<mouse-1>" 'tear-off-window)
 (keymap-set dired-mode-map "<mouse-2>" 'dired-mouse-find-file)
 (keymap-set mode-line-buffer-identification-keymap "<mode-line> <down-mouse-1>" 'ignore)
