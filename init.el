@@ -61,7 +61,7 @@
  '(mouse-wheel-flip-direction t)
  '(mouse-wheel-progressive-speed nil)
  '(mouse-wheel-tilt-scroll t)
- '(package-selected-packages '(corfu dape markdown-mode nhexl-mode))
+ '(package-selected-packages '(corfu dape iedit markdown-mode nhexl-mode))
  '(pixel-scroll-precision-interpolate-mice nil)
  '(pixel-scroll-precision-mode t)
  '(project-mode-line t)
@@ -94,6 +94,8 @@
 
 ;; Autoloaded files
 (require 'dired-x)
+(require 'iedit)
+(require 'iedit-rect)
 
 ;; Installed libraries:
 (load-file "~/.emacs.d/replete.el") ;; https://github.com/jamesdiacono/Replete/issues/5
