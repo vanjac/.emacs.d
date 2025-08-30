@@ -240,6 +240,7 @@
 (keymap-global-set "C-c t" 'visit-temp-file)
 (keymap-global-set "C-c s" 'shell)
 (keymap-global-set "C-c f" 'recentf-open) ;; same as Crux
+(keymap-global-set "C-c c" 'quick-calc)
 (keymap-global-set "C-/ n" 'set-frame-name-project)
 (keymap-global-set "<mode-line> C-<mouse-1>" 'tear-off-window)
 (keymap-set dired-mode-map "<mouse-2>" 'dired-mouse-find-file)
