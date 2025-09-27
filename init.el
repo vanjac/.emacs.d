@@ -180,6 +180,12 @@
   "Visual bell function from EmacsWiki"
   (invert-face 'mode-line)
   (run-with-timer 0.1 nil #'invert-face 'mode-line))
+;; from: https://endlessparentheses.com/ansi-colors-in-the-compilation-buffer-output.html
+(defun colorize-compilation ()
+  "Colorize from `compilation-filter-start' to `point'."
+  (let ((inhibit-read-only t))
+    (ansi-color-apply-on-region
+     compilation-filter-start (point))))
 
 ;; Skeletons:
 (define-skeleton jsdoc-skeleton "Insert JSDoc comment" nil
@@ -187,6 +193,7 @@
 
 ;; Hooks:
 (add-hook 'comint-output-filter-functions 'comint-osc-process-output)
+(add-hook 'compilation-filter-hook 'colorize-compilation)
 (add-hook 'dired-mode-hook
 	  (lambda ()
 	    (dired-hide-details-mode t)))
