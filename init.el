@@ -22,7 +22,6 @@
  '(delete-by-moving-to-trash t)
  '(delete-pair-blink-delay 0)
  '(delete-selection-mode t)
- '(dired-dwim-target 'dired-dwim-target-next)
  '(dired-hide-details-hide-information-lines nil)
  '(dired-hide-details-hide-symlink-targets nil)
  '(dired-listing-switches "-al --group-directories-first")
