@@ -5,8 +5,6 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(auto-revert-verbose nil)
- '(backup-by-copying t)
- '(backup-directory-alist '((".*" . "~/.emacs_backups/")))
  '(backward-delete-char-untabify-method nil)
  '(c-default-style
    '((java-mode . "java") (awk-mode . "awk") (other . "chroma")))
@@ -54,6 +52,7 @@
  '(initial-scratch-message "")
  '(isearch-allow-scroll 'unlimited)
  '(isearch-lazy-count t)
+ '(make-backup-files nil)
  '(mark-even-if-inactive nil)
  '(markdown-enable-wiki-links t)
  '(mode-line-percent-position nil)
