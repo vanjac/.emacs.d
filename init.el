@@ -12,9 +12,6 @@
  '(comint-scroll-show-maximum-output nil)
  '(comint-terminfo-terminal "dumb-emacs-term-color")
  '(context-menu-mode t)
- '(corfu-auto t)
- '(corfu-popupinfo-delay '(0.5 . 0.5))
- '(corfu-popupinfo-mode t)
  '(cursor-type 'bar)
  '(custom-enabled-themes '(modus-operandi))
  '(delete-by-moving-to-trash t)
@@ -94,6 +91,15 @@
 (require 'iedit-rect)
 ;; https://github.com/jamesdiacono/Replete
 (require 'replete "~/code/Replete/plugins/emacs/replete.el")
+
+(use-package corfu
+  :custom
+  (corfu-auto t)
+  (corfu-popupinfo-mode t)
+  (corfu-popupinfo-delay '(0.5 . 0.5))
+  :hook ((eglot-managed-mode . corfu-mode)
+	 (mhtml-mode . corfu-mode)
+	 (css-ts-mode . corfu-mode)))
 
 ;; Additional (manual) customization:
 (setq-default electric-indent-inhibit t)
@@ -204,15 +210,6 @@
 (add-hook 'emacs-lisp-mode-hook
 	  (lambda ()
 	    (setq tab-width 8)))
-(add-hook 'eglot-managed-mode-hook
-	  (lambda ()
-	    (corfu-mode t)))
-(add-hook 'mhtml-mode-hook
-	  (lambda ()
-	    (corfu-mode t)))
-(add-hook 'css-ts-mode-hook
-	  (lambda ()
-	    (corfu-mode t)))
 (add-hook 'python-mode-hook
 	  (lambda ()
 	   (setq tab-width 4)))
