@@ -87,54 +87,6 @@
  ;; If there is more than one, they won't work right.
  '(default ((t (:family "Iosevka Fixed" :foundry "UKWN" :slant normal :weight regular :height 120 :width normal)))))
 
-(use-package dired
-  :hook ((dired-mode . (lambda () (dired-hide-details-mode t))))
-  :bind (:map dired-mode-map
-	      ("<mouse-2>" . dired-mouse-find-file)))
-(use-package project)
-
-(use-package corfu
-  :custom
-  (corfu-auto t)
-  (corfu-popupinfo-mode t)
-  (corfu-popupinfo-delay '(0.5 . 0.5))
-  :hook ((eglot-managed-mode . corfu-mode)
-	 (mhtml-mode . corfu-mode)
-	 (css-ts-mode . corfu-mode)))
-(use-package iedit)
-(use-package iedit-rect)
-(use-package markdown-mode
-  :defer t
-  :custom
-  (markdown-enable-wiki-links t))
-(use-package nhexl-mode
-  :defer t
-  :init (setq nhexl--put-LF-in-string t) ; nhexl layout bug
-  :bind (:map nhexl-mode-map
-	      ("C-c ." . nhexl-nibble-edit-mode)))
-;; https://github.com/jamesdiacono/Replete
-(use-package replete
-  :load-path "~/code/Replete/plugins/emacs"
-  :commands replete-start
-  :config
-  (setq replete-default-command
-	(list
-	 "node"
-	 (expand-file-name "~/code/Replete/replete.js")
-	 "--browser_hostname=0.0.0.0"
-	 "--browser_port=9325"
-	 "--content_type=js:text/javascript"
-	 "--content_type=mjs:text/javascript"
-	 "--content_type=map:application/json"
-	 "--content_type=css:text/css"
-	 "--content_type=html:text/html; charset=utf-8"
-	 "--content_type=wasm:application/wasm"
-	 "--content_type=woff2:font/woff2"
-	 "--content_type=svg:image/svg+xml"
-	 "--content_type=png:image/png"
-	 "--content_type=webp:image/webp"
-	 "--content_type=json:application/json")))
-
 ;; Additional (manual) customization:
 (setq-default electric-indent-inhibit t)
 (put 'mhtml-mode 'flyspell-mode-predicate #'sgml-mode-flyspell-verify)
@@ -281,3 +233,53 @@
 (put 'downcase-region 'disabled nil)
 (put 'scroll-left 'disabled nil)
 (put 'dired-find-alternate-file 'disabled nil)
+
+;; Built-in
+(use-package dired
+  :hook ((dired-mode . (lambda () (dired-hide-details-mode t))))
+  :bind (:map dired-mode-map
+	      ("<mouse-2>" . dired-mouse-find-file)))
+(use-package project)
+
+;; Installed
+(use-package corfu
+  :custom
+  (corfu-auto t)
+  (corfu-popupinfo-mode t)
+  (corfu-popupinfo-delay '(0.5 . 0.5))
+  :hook ((eglot-managed-mode . corfu-mode)
+	 (mhtml-mode . corfu-mode)
+	 (css-ts-mode . corfu-mode)))
+(use-package iedit)
+(use-package iedit-rect)
+(use-package markdown-mode
+  :defer t
+  :custom
+  (markdown-enable-wiki-links t))
+(use-package nhexl-mode
+  :defer t
+  :init (setq nhexl--put-LF-in-string t) ; nhexl layout bug
+  :bind (:map nhexl-mode-map
+	      ("C-c ." . nhexl-nibble-edit-mode)))
+;; https://github.com/jamesdiacono/Replete
+(use-package replete
+  :load-path "~/code/Replete/plugins/emacs"
+  :commands replete-start
+  :config
+  (setq replete-default-command
+	(list
+	 "node"
+	 (expand-file-name "~/code/Replete/replete.js")
+	 "--browser_hostname=0.0.0.0"
+	 "--browser_port=9325"
+	 "--content_type=js:text/javascript"
+	 "--content_type=mjs:text/javascript"
+	 "--content_type=map:application/json"
+	 "--content_type=css:text/css"
+	 "--content_type=html:text/html; charset=utf-8"
+	 "--content_type=wasm:application/wasm"
+	 "--content_type=woff2:font/woff2"
+	 "--content_type=svg:image/svg+xml"
+	 "--content_type=png:image/png"
+	 "--content_type=webp:image/webp"
+	 "--content_type=json:application/json")))
