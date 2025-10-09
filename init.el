@@ -51,6 +51,7 @@
  '(mouse-wheel-flip-direction t)
  '(mouse-wheel-progressive-speed nil)
  '(mouse-wheel-tilt-scroll t)
+ '(org-support-shift-select t)
  '(package-selected-packages '(corfu dape iedit markdown-mode nhexl-mode))
  '(pixel-scroll-precision-interpolate-mice nil)
  '(pixel-scroll-precision-mode t)
