@@ -87,11 +87,15 @@
  ;; If there is more than one, they won't work right.
  '(default ((t (:family "Iosevka Fixed" :foundry "UKWN" :slant normal :weight regular :height 120 :width normal)))))
 
-(require 'dired)
 (require 'iedit)
 (require 'iedit-rect)
 ;; https://github.com/jamesdiacono/Replete
 (require 'replete "~/code/Replete/plugins/emacs/replete.el")
+
+(use-package dired
+  :hook ((dired-mode . (lambda () (dired-hide-details-mode t))))
+  :bind (:map dired-mode-map
+	      ("<mouse-2>" . dired-mouse-find-file)))
 
 (use-package corfu
   :custom
@@ -206,9 +210,6 @@
 ;; Hooks:
 (add-hook 'comint-output-filter-functions 'comint-osc-process-output)
 (add-hook 'compilation-filter-hook 'colorize-compilation)
-(add-hook 'dired-mode-hook
-	  (lambda ()
-	    (dired-hide-details-mode t)))
 (add-hook 'prog-mode-hook
 	  (lambda ()
 	    (display-line-numbers-mode 1)
@@ -252,7 +253,6 @@
 (keymap-global-set "C-c c" 'quick-calc)
 (keymap-global-set "C-/ n" 'set-frame-name-project)
 (keymap-global-set "<mode-line> C-<mouse-1>" 'tear-off-window)
-(keymap-set dired-mode-map "<mouse-2>" 'dired-mouse-find-file)
 (keymap-set mode-line-buffer-identification-keymap "<mode-line> <down-mouse-1>" 'ignore)
 (keymap-set mode-line-buffer-identification-keymap "<mode-line> <drag-mouse-1>" 'mouse-move-buffer)
 (keymap-set mode-line-buffer-identification-keymap "<mode-line> C-<drag-mouse-1>" 'mouse-drag-buffer)
