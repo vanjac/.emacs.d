@@ -105,11 +105,15 @@
   :defer t
   :custom
   (markdown-enable-wiki-links t))
+(use-package nhexl-mode
+  :defer t
+  :init (setq nhexl--put-LF-in-string t) ; nhexl layout bug
+  :bind (:map nhexl-mode-map
+	      ("C-c ." . nhexl-nibble-edit-mode)))
 
 ;; Additional (manual) customization:
 (setq-default electric-indent-inhibit t)
 (put 'mhtml-mode 'flyspell-mode-predicate #'sgml-mode-flyspell-verify)
-(setq nhexl--put-LF-in-string t) ;; nhexl layout bug
 (setq replete-command
       (list
        "node"
@@ -252,8 +256,6 @@
 (keymap-set mode-line-buffer-identification-keymap "<mode-line> <down-mouse-1>" 'ignore)
 (keymap-set mode-line-buffer-identification-keymap "<mode-line> <drag-mouse-1>" 'mouse-move-buffer)
 (keymap-set mode-line-buffer-identification-keymap "<mode-line> C-<drag-mouse-1>" 'mouse-drag-buffer)
-(with-eval-after-load "nhexl-mode"
-  (keymap-set nhexl-mode-map "C-c ." 'nhexl-nibble-edit-mode))
 (add-hook 'js-ts-mode-hook
 	  (lambda ()
 	    (keymap-local-set "C-x C-e" 'replete-browser)
