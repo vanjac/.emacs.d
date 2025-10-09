@@ -84,11 +84,20 @@
  ;; If there is more than one, they won't work right.
  '(default ((t (:family "Iosevka Fixed" :foundry "UKWN" :slant normal :weight regular :height 120 :width normal)))))
 
-;; Additional (manual) customization:
+;;; Additional (manual) customization:
 (setq-default electric-indent-inhibit t)
 (put 'mhtml-mode 'flyspell-mode-predicate #'sgml-mode-flyspell-verify)
+(c-add-style "chroma"
+	     '((indent-tabs-mode . t)
+	       (c-basic-offset . 4)
+	       (c-offsets-alist
+		(arglist-cont-nonempty . +)
+		(arglist-close . 0)
+		(innamespace . 0)
+		(label . 0))
+	       ))
 
-;; Platform-specific
+;;; Platform-specific:
 (when (eq system-type 'gnu/linux)
   ;; note: must be installed in ~/.terminfo !
   (setq comint-terminfo-terminal "dumb-emacs-term-color"))
@@ -97,7 +106,7 @@
   (setenv "PATH" (concat "C:\\Program Files\\Git\\usr\\bin;" (getenv "PATH")))
   (push "c:/Program Files/Git/usr/bin" exec-path))
 
-;; Mode overrides:
+;;; Mode overrides:
 (push '("\\.m?js\\'" . js-ts-mode) auto-mode-alist)
 (push '("\\.ts\\'" . typescript-ts-mode) auto-mode-alist)
 (push '("\\.css\\'" . css-ts-mode) auto-mode-alist)
@@ -105,7 +114,7 @@
 (push '("\\.lua\\'" . lua-ts-mode) auto-mode-alist)
 (push '("\\.rs\\'" . rust-ts-mode) auto-mode-alist)
 
-;; Commands:
+;;; Commands:
 (defun visit-temp-file ()
   (interactive)
   (find-file (make-temp-file "scratch")))
@@ -141,11 +150,18 @@
     (ansi-color-apply-on-region
      compilation-filter-start (point))))
 
-;; Skeletons:
 (define-skeleton jsdoc-skeleton "Insert JSDoc comment" nil
   "/**" _ "*/")
 
-;; Hooks:
+;;; Enabled commands:
+(put 'set-goal-column 'disabled nil)
+(put 'narrow-to-region 'disabled nil)
+(put 'upcase-region 'disabled nil)
+(put 'downcase-region 'disabled nil)
+(put 'scroll-left 'disabled nil)
+(put 'dired-find-alternate-file 'disabled nil)
+
+;;; Hooks:
 (add-hook 'comint-output-filter-functions 'comint-osc-process-output)
 (add-hook 'compilation-filter-hook 'colorize-compilation)
 (add-hook 'prog-mode-hook
@@ -160,7 +176,7 @@
 	  (lambda ()
 	    (setq-local cursor-type (if overwrite-mode 'box 'bar))))
 
-;; Advice:
+;;; Advice:
 ;; https://def.lakaban.net/2023-03-05-high-quality-scrolling-emacs/
 (advice-add 'pixel-scroll-precision :around #'filter-mwheel-never-coalesce)
 (advice-add 'mwheel-scroll          :around #'filter-mwheel-always-coalesce)
@@ -170,7 +186,7 @@
 (advice-add 'flymake--mode-line-counter-scroll-next :around #'filter-mwheel-always-coalesce)
 (advice-add 'flymake--mode-line-counter-scroll-prev :around #'filter-mwheel-always-coalesce)
 
-;; Key bindings:
+;;; Key bindings:
 (keymap-global-set "C-z" 'undo)
 (keymap-global-set "C-S-z" 'undo-redo)
 (keymap-global-set "C-/" project-prefix-map)
@@ -187,30 +203,11 @@
 (keymap-global-set "C-/ n" 'set-frame-name-project)
 (keymap-global-set "<mode-line> C-<mouse-1>" 'tear-off-window)
 
-;; Formatting:
-(c-add-style "chroma"
-	     '((indent-tabs-mode . t)
-	       (c-basic-offset . 4)
-	       (c-offsets-alist
-		(arglist-cont-nonempty . +)
-		(arglist-close . 0)
-		(innamespace . 0)
-		(label . 0))
-	       ))
-
-;; Enabled commands
-(put 'set-goal-column 'disabled nil)
-(put 'narrow-to-region 'disabled nil)
-(put 'upcase-region 'disabled nil)
-(put 'downcase-region 'disabled nil)
-(put 'scroll-left 'disabled nil)
-(put 'dired-find-alternate-file 'disabled nil)
-
-;; Other files
+;;; Other files:
 (push "~/.emacs.d/lisp" load-path)
 (load "drag-buffer")
 
-;; Built-in
+;;; Built-in:
 (use-package dired
   :bind (:map dired-mode-map
 	      ("<mouse-2>" . dired-mouse-find-file)))
@@ -220,7 +217,7 @@
 	      ("C-x C-e" . replete-browser)
 	      ("C-c /" . jsdoc-skeleton)))
 
-;; Installed
+;;; Installed:
 (use-package corfu
   :custom
   (corfu-auto t)
