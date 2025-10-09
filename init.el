@@ -17,8 +17,6 @@
  '(delete-by-moving-to-trash t)
  '(delete-pair-blink-delay 0)
  '(delete-selection-mode t)
- '(dired-hide-details-hide-information-lines nil)
- '(dired-hide-details-hide-symlink-targets nil)
  '(dired-listing-switches "-al --group-directories-first")
  '(dired-mouse-drag-files 'move)
  '(dired-recursive-copies 'always)
@@ -230,7 +228,6 @@
 
 ;; Built-in
 (use-package dired
-  :hook ((dired-mode . (lambda () (dired-hide-details-mode t))))
   :bind (:map dired-mode-map
 	      ("<mouse-2>" . dired-mouse-find-file)))
 (use-package project)
