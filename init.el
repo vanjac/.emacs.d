@@ -87,7 +87,7 @@
  ;; If there is more than one, they won't work right.
  '(default ((t (:family "Iosevka Fixed" :foundry "UKWN" :slant normal :weight regular :height 120 :width normal)))))
 
-(require 'dired-x)
+(require 'dired)
 (require 'iedit)
 (require 'iedit-rect)
 ;; https://github.com/jamesdiacono/Replete
