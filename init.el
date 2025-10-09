@@ -206,10 +206,6 @@
 (keymap-set mode-line-buffer-identification-keymap "<mode-line> <down-mouse-1>" 'ignore)
 (keymap-set mode-line-buffer-identification-keymap "<mode-line> <drag-mouse-1>" 'mouse-move-buffer)
 (keymap-set mode-line-buffer-identification-keymap "<mode-line> C-<drag-mouse-1>" 'mouse-drag-buffer)
-(add-hook 'js-ts-mode-hook
-	  (lambda ()
-	    (keymap-local-set "C-x C-e" 'replete-browser)
-	    (keymap-local-set "C-c /" 'jsdoc-skeleton)))
 
 ;; Formatting:
 (c-add-style "chroma"
@@ -235,6 +231,10 @@
   :bind (:map dired-mode-map
 	      ("<mouse-2>" . dired-mouse-find-file)))
 (use-package project)
+(use-package js
+  :bind (:map js-ts-mode-map
+	      ("C-x C-e" . replete-browser)
+	      ("C-c /" . jsdoc-skeleton)))
 
 ;; Installed
 (use-package corfu
