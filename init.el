@@ -89,13 +89,12 @@
 
 (require 'iedit)
 (require 'iedit-rect)
-;; https://github.com/jamesdiacono/Replete
-(require 'replete "~/code/Replete/plugins/emacs/replete.el")
 
 (use-package dired
   :hook ((dired-mode . (lambda () (dired-hide-details-mode t))))
   :bind (:map dired-mode-map
 	      ("<mouse-2>" . dired-mouse-find-file)))
+(use-package project)
 
 (use-package corfu
   :custom
@@ -114,27 +113,32 @@
   :init (setq nhexl--put-LF-in-string t) ; nhexl layout bug
   :bind (:map nhexl-mode-map
 	      ("C-c ." . nhexl-nibble-edit-mode)))
+;; https://github.com/jamesdiacono/Replete
+(use-package replete
+  :load-path "~/code/Replete/plugins/emacs"
+  :commands replete-start
+  :config
+  (setq replete-default-command
+	(list
+	 "node"
+	 (expand-file-name "~/code/Replete/replete.js")
+	 "--browser_hostname=0.0.0.0"
+	 "--browser_port=9325"
+	 "--content_type=js:text/javascript"
+	 "--content_type=mjs:text/javascript"
+	 "--content_type=map:application/json"
+	 "--content_type=css:text/css"
+	 "--content_type=html:text/html; charset=utf-8"
+	 "--content_type=wasm:application/wasm"
+	 "--content_type=woff2:font/woff2"
+	 "--content_type=svg:image/svg+xml"
+	 "--content_type=png:image/png"
+	 "--content_type=webp:image/webp"
+	 "--content_type=json:application/json")))
 
 ;; Additional (manual) customization:
 (setq-default electric-indent-inhibit t)
 (put 'mhtml-mode 'flyspell-mode-predicate #'sgml-mode-flyspell-verify)
-(setq replete-default-command
-      (list
-       "node"
-       (expand-file-name "~/code/Replete/replete.js")
-	"--browser_hostname=0.0.0.0"
-	"--browser_port=9325"
-	"--content_type=js:text/javascript"
-	"--content_type=mjs:text/javascript"
-	"--content_type=map:application/json"
-	"--content_type=css:text/css"
-	"--content_type=html:text/html; charset=utf-8"
-	"--content_type=wasm:application/wasm"
-	"--content_type=woff2:font/woff2"
-	"--content_type=svg:image/svg+xml"
-	"--content_type=png:image/png"
-	"--content_type=webp:image/webp"
-	"--content_type=json:application/json"))
 
 ;; Mode overrides:
 (push '("\\.m?js\\'" . js-ts-mode) auto-mode-alist)
