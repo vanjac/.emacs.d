@@ -10,7 +10,6 @@
    '((java-mode . "java") (awk-mode . "awk") (other . "chroma")))
  '(column-number-mode t)
  '(comint-scroll-show-maximum-output nil)
- '(comint-terminfo-terminal "dumb-emacs-term-color")
  '(context-menu-mode t)
  '(cursor-type 'bar)
  '(custom-enabled-themes '(modus-operandi))
@@ -87,6 +86,11 @@
 ;; Additional (manual) customization:
 (setq-default electric-indent-inhibit t)
 (put 'mhtml-mode 'flyspell-mode-predicate #'sgml-mode-flyspell-verify)
+
+;; Platform-specific
+(when (eq system-type 'gnu/linux)
+  ;; note: must be installed in ~/.terminfo !
+  (setq comint-terminfo-terminal "dumb-emacs-term-color"))
 
 ;; Mode overrides:
 (push '("\\.m?js\\'" . js-ts-mode) auto-mode-alist)
