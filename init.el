@@ -118,7 +118,7 @@
 ;; Additional (manual) customization:
 (setq-default electric-indent-inhibit t)
 (put 'mhtml-mode 'flyspell-mode-predicate #'sgml-mode-flyspell-verify)
-(setq replete-command
+(setq replete-default-command
       (list
        "node"
        (expand-file-name "~/code/Replete/replete.js")
@@ -150,9 +150,8 @@
   (find-file (make-temp-file "scratch")))
 (defun replete-start-here ()
   (interactive)
-  (setq replete-cwd (project-root (project-current t)))
-  (replete-start)
-  (switch-to-buffer-other-window "*replete*"))
+  (replete-start (project-root (project-current t)))
+  (switch-to-buffer-other-window replete-buffer))
 (defun set-frame-name-project (arg)
   (interactive "P")
   (set-frame-name (unless arg
