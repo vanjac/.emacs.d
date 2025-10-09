@@ -87,9 +87,6 @@
  ;; If there is more than one, they won't work right.
  '(default ((t (:family "Iosevka Fixed" :foundry "UKWN" :slant normal :weight regular :height 120 :width normal)))))
 
-(require 'iedit)
-(require 'iedit-rect)
-
 (use-package dired
   :hook ((dired-mode . (lambda () (dired-hide-details-mode t))))
   :bind (:map dired-mode-map
@@ -104,6 +101,8 @@
   :hook ((eglot-managed-mode . corfu-mode)
 	 (mhtml-mode . corfu-mode)
 	 (css-ts-mode . corfu-mode)))
+(use-package iedit)
+(use-package iedit-rect)
 (use-package markdown-mode
   :defer t
   :custom
