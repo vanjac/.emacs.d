@@ -50,7 +50,6 @@
  '(isearch-lazy-count t)
  '(make-backup-files nil)
  '(mark-even-if-inactive nil)
- '(markdown-enable-wiki-links t)
  '(mode-line-percent-position nil)
  '(mouse-wheel-flip-direction t)
  '(mouse-wheel-progressive-speed nil)
@@ -71,6 +70,8 @@
  '(tab-width 4)
  '(tool-bar-mode nil)
  '(treesit-font-lock-level 4)
+ '(use-package-compute-statistics t)
+ '(use-package-verbose t)
  '(whitespace-global-modes '(prog-mode))
  '(whitespace-line-column 100)
  '(whitespace-style
@@ -100,6 +101,10 @@
   :hook ((eglot-managed-mode . corfu-mode)
 	 (mhtml-mode . corfu-mode)
 	 (css-ts-mode . corfu-mode)))
+(use-package markdown-mode
+  :defer t
+  :custom
+  (markdown-enable-wiki-links t))
 
 ;; Additional (manual) customization:
 (setq-default electric-indent-inhibit t)
