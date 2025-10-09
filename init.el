@@ -67,7 +67,6 @@
  '(set-mark-command-repeat-pop t)
  '(tab-line-close-button-show nil)
  '(tab-line-exclude-modes '(completion-list-mode ediff-mode))
- '(tab-width 4)
  '(tool-bar-mode nil)
  '(treesit-font-lock-level 4)
  '(use-package-compute-statistics t)
@@ -167,16 +166,11 @@
 (add-hook 'prog-mode-hook
 	  (lambda ()
 	    (display-line-numbers-mode 1)
-	    (visual-wrap-prefix-mode 1)))
-(add-hook 'comint-mode-hook
-	  (lambda ()
-	    (setq tab-width 8)))
+	    (visual-wrap-prefix-mode 1)
+	    (setq tab-width 4)))
 (add-hook 'emacs-lisp-mode-hook
 	  (lambda ()
 	    (setq tab-width 8)))
-(add-hook 'python-mode-hook
-	  (lambda ()
-	   (setq tab-width 4)))
 (add-hook 'overwrite-mode-hook
 	  (lambda ()
 	    (setq-local cursor-type (if overwrite-mode 'box 'bar))))
