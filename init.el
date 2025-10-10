@@ -48,7 +48,6 @@
  '(make-backup-files nil)
  '(mark-even-if-inactive nil)
  '(mode-line-percent-position nil)
- '(mouse-wheel-flip-direction t)
  '(mouse-wheel-progressive-speed nil)
  '(mouse-wheel-tilt-scroll t)
  '(org-support-shift-select t)
@@ -101,7 +100,8 @@
 ;;; Platform-specific:
 (when (eq system-type 'gnu/linux)
   ;; note: must be installed in ~/.terminfo !
-  (setopt comint-terminfo-terminal "dumb-emacs-term-color"))
+  (setopt comint-terminfo-terminal "dumb-emacs-term-color")
+  (setopt mouse-wheel-flip-direction t))
 (when (eq system-type 'windows-nt)
   ;; Add GNU utilities to path
   (setenv "PATH" (concat "C:\\Program Files\\Git\\usr\\bin;" (getenv "PATH")))
