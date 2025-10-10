@@ -63,6 +63,7 @@
  '(sentence-end-double-space nil)
  '(server-stop-automatically 'delete-frame)
  '(set-mark-command-repeat-pop t)
+ '(shell-command-prompt-show-cwd t)
  '(tab-line-close-button-show nil)
  '(tab-line-exclude-modes '(completion-list-mode ediff-mode))
  '(tool-bar-mode nil)
