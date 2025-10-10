@@ -14,8 +14,9 @@
       (setq mwheel-coalesce-scroll-events nil)
     (apply orig args)))
 
+(unless (eq system-type 'windows-nt)
+  (advice-add 'mwheel-scroll :around #'filter-mwheel-always-coalesce))
 (advice-add 'pixel-scroll-precision :around #'filter-mwheel-never-coalesce)
-(advice-add 'mwheel-scroll          :around #'filter-mwheel-always-coalesce)
 (advice-add 'mouse-wheel-text-scale :around #'filter-mwheel-always-coalesce)
 (advice-add 'tab-line-hscroll-left  :around #'filter-mwheel-always-coalesce)
 (advice-add 'tab-line-hscroll-right :around #'filter-mwheel-always-coalesce)
