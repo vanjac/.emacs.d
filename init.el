@@ -101,7 +101,7 @@
 ;;; Platform-specific:
 (when (eq system-type 'gnu/linux)
   ;; note: must be installed in ~/.terminfo !
-  (setq comint-terminfo-terminal "dumb-emacs-term-color"))
+  (setopt comint-terminfo-terminal "dumb-emacs-term-color"))
 (when (eq system-type 'windows-nt)
   ;; Add GNU utilities to path
   (setenv "PATH" (concat "C:\\Program Files\\Git\\usr\\bin;" (getenv "PATH")))
