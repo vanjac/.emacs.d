@@ -49,6 +49,9 @@
  '(mark-even-if-inactive nil)
  '(mode-line-percent-position nil)
  '(mouse-wheel-progressive-speed nil)
+ '(mouse-wheel-scroll-amount
+   '(3 ((shift) . hscroll) ((meta)) ((control meta) . global-text-scale)
+       ((control) . text-scale)))
  '(mouse-wheel-tilt-scroll t)
  '(org-support-shift-select t)
  '(package-selected-packages '(corfu dape iedit markdown-mode nhexl-mode))
