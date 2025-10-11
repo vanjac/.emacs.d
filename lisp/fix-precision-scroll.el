@@ -14,7 +14,8 @@
       (setq mwheel-coalesce-scroll-events nil)
     (apply orig args)))
 
-(unless (eq system-type 'windows-nt)
+(when (eq system-type 'gnu/linux)
+  ;; for horizontal scrolling
   (advice-add 'mwheel-scroll :around #'filter-mwheel-always-coalesce))
 (advice-add 'pixel-scroll-precision :around #'filter-mwheel-never-coalesce)
 (advice-add 'mouse-wheel-text-scale :around #'filter-mwheel-always-coalesce)

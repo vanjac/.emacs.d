@@ -52,7 +52,6 @@
  '(mouse-wheel-scroll-amount
    '(3 ((shift) . hscroll) ((meta)) ((control meta) . global-text-scale)
        ((control) . text-scale)))
- '(mouse-wheel-tilt-scroll t)
  '(org-support-shift-select t)
  '(package-selected-packages '(corfu dape iedit markdown-mode nhexl-mode))
  '(pixel-scroll-precision-interpolate-mice nil)
@@ -104,6 +103,7 @@
 (when (eq system-type 'gnu/linux)
   ;; note: must be installed in ~/.terminfo !
   (setopt comint-terminfo-terminal "dumb-emacs-term-color")
+  (setopt mouse-wheel-tilt-scroll t)
   (setopt mouse-wheel-flip-direction t))
 (when (eq system-type 'windows-nt)
   ;; Add GNU utilities to path
