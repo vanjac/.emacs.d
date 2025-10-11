@@ -168,10 +168,7 @@
 ;;; Key bindings:
 (keymap-global-set "C-z" 'undo)
 (keymap-global-set "C-S-z" 'undo-redo)
-(keymap-global-set "C-/" project-prefix-map)
 (keymap-global-set "C-x k" 'kill-current-buffer)
-(keymap-global-set "S-<down-mouse-1>" 'mouse-save-then-kill) ;; https://superuser.com/a/522183
-(keymap-global-set "S-<mouse-1>" 'ignore-preserving-kill-region)
 (keymap-global-set "C-<tab>" 'previous-buffer)
 (keymap-global-set "C-<iso-lefttab>" 'next-buffer)
 (keymap-global-set "C-c <delete>" 'delete-pair)
@@ -179,7 +176,10 @@
 (keymap-global-set "C-c s" 'shell)
 (keymap-global-set "C-c f" 'recentf-open) ;; same as Crux
 (keymap-global-set "C-c c" 'quick-calc)
+(keymap-global-set "C-/" project-prefix-map)
 (keymap-global-set "C-/ n" 'set-frame-name-project)
+(keymap-global-set "S-<down-mouse-1>" 'mouse-save-then-kill) ;; https://superuser.com/a/522183
+(keymap-global-set "S-<mouse-1>" 'ignore-preserving-kill-region)
 (keymap-global-set "<mode-line> C-<mouse-1>" 'tear-off-window)
 
 ;;; Other files:
