@@ -37,6 +37,7 @@
  '(global-auto-revert-mode t)
  '(global-auto-revert-non-file-buffers t)
  '(global-hl-line-mode t)
+ '(global-so-long-mode t)
  '(global-tab-line-mode t)
  '(global-whitespace-mode t)
  '(highlight-nonselected-windows t)
