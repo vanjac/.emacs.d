@@ -190,7 +190,10 @@
 ;;; Built-in:
 (use-package dired
   :bind (:map dired-mode-map
-	      ("<mouse-2>" . dired-mouse-find-file)))
+	      ("<mouse-2>" . dired-mouse-find-file))
+  :hook ((dired-mode .
+		     (lambda ()
+		       (setq truncate-lines t)))))
 (use-package project)
 (use-package js
   :bind (:map js-ts-mode-map
