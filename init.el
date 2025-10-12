@@ -61,6 +61,7 @@
  '(project-vc-merge-submodules nil)
  '(recentf-mode t)
  '(ring-bell-function 'flash-mode-line)
+ '(save-place-mode t)
  '(savehist-mode t)
  '(sentence-end-double-space nil)
  '(server-stop-automatically 'delete-frame)
