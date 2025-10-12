@@ -124,6 +124,16 @@
 (defun visit-temp-file ()
   (interactive)
   (find-file (make-temp-file "scratch")))
+(defvar file-manager-dbus-name "org.freedesktop.FileManager1")
+(defun dir-jump-external ()
+  (interactive)
+  (when (eq system-type 'gnu/linux)
+    (call-process "gdbus" nil 0 nil "call" "--session"
+		  "--dest" file-manager-dbus-name
+		  "--object-path" "/org/freedesktop/FileManager1"
+		  "--method" "org.freedesktop.FileManager1.ShowItems"
+		  (concat "['file://" buffer-file-name "']")
+		  "")))
 (defun replete-start-here ()
   (interactive)
   (replete-start (project-root (project-current t)))
@@ -174,6 +184,7 @@
 (keymap-global-set "C-z" 'undo)
 (keymap-global-set "C-S-z" 'undo-redo)
 (keymap-global-set "C-x k" 'kill-current-buffer)
+(keymap-global-set "C-x C-S-j" 'dir-jump-external)
 (keymap-global-set "C-<tab>" 'previous-buffer)
 (keymap-global-set "C-<iso-lefttab>" 'next-buffer)
 (keymap-global-set "C-c <delete>" 'delete-pair)
