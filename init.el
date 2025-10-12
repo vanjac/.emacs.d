@@ -46,6 +46,8 @@
  '(initial-scratch-message "")
  '(isearch-allow-scroll 'unlimited)
  '(isearch-lazy-count t)
+ '(locate-update-path "/sudo::")
+ '(locate-update-when-revert t)
  '(make-backup-files nil)
  '(mark-even-if-inactive nil)
  '(mode-line-percent-position nil)
