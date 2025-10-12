@@ -54,7 +54,7 @@
    '(3 ((shift) . hscroll) ((meta)) ((control meta) . global-text-scale)
        ((control) . text-scale)))
  '(org-support-shift-select t)
- '(package-selected-packages '(corfu dape iedit markdown-mode nhexl-mode))
+ '(package-selected-packages '(corfu dape gptel iedit markdown-mode nhexl-mode))
  '(pixel-scroll-precision-interpolate-mice nil)
  '(pixel-scroll-precision-mode t)
  '(project-mode-line t)
