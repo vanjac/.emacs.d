@@ -127,13 +127,14 @@
 (defvar file-manager-dbus-name "org.freedesktop.FileManager1")
 (defun dir-jump-external ()
   (interactive)
-  (when (eq system-type 'gnu/linux)
-    (call-process "gdbus" nil 0 nil "call" "--session"
-		  "--dest" file-manager-dbus-name
-		  "--object-path" "/org/freedesktop/FileManager1"
-		  "--method" "org.freedesktop.FileManager1.ShowItems"
-		  (concat "['file://" buffer-file-name "']")
-		  "")))
+  (let ((path (or buffer-file-name (expand-file-name default-directory))))
+    (when (eq system-type 'gnu/linux)
+      (call-process "gdbus" nil 0 nil "call" "--session"
+		    "--dest" file-manager-dbus-name
+		    "--object-path" "/org/freedesktop/FileManager1"
+		    "--method" "org.freedesktop.FileManager1.ShowItems"
+		    (concat "['file://" path "']")
+		    ""))))
 (defun replete-start-here ()
   (interactive)
   (replete-start (project-root (project-current t)))
