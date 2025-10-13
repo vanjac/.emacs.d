@@ -62,6 +62,7 @@
  '(project-mode-line t)
  '(project-vc-merge-submodules nil)
  '(recentf-mode t)
+ '(register-use-preview nil)
  '(ring-bell-function 'flash-mode-line)
  '(save-place-mode t)
  '(savehist-mode t)
