@@ -113,7 +113,8 @@
 (when (eq system-type 'windows-nt)
   ;; Add GNU utilities to path
   (setenv "PATH" (concat "C:\\Program Files\\Git\\usr\\bin;" (getenv "PATH")))
-  (push "c:/Program Files/Git/usr/bin" exec-path))
+  (push "c:/Program Files/Git/usr/bin" exec-path)
+  (keymap-global-set "<right-fringe> C-<mouse-2>" 'mouse-split-window-vertically))
 
 ;;; Mode overrides:
 (push '("\\.m?js\\'" . js-ts-mode) auto-mode-alist)
