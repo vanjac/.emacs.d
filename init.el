@@ -216,7 +216,9 @@
   :hook ((dired-mode .
 		     (lambda ()
 		       (setq truncate-lines t)))))
-(use-package project)
+(use-package project
+  :config
+  (push '(project-dired "Dired") project-switch-commands))
 (use-package js
   :bind (:map js-ts-mode-map
 	      ("C-x C-e" . replete-browser)
