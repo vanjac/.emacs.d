@@ -204,14 +204,6 @@
 (keymap-global-set "S-<mouse-1>" 'ignore-preserving-kill-region)
 (keymap-global-set "<mode-line> C-<mouse-1>" 'tear-off-window)
 
-;;; Modes:
-(defvar doc-view-fix-scroll-mode-map (make-sparse-keymap))
-(keymap-set doc-view-fix-scroll-mode-map "<wheel-down>" 'mwheel-scroll)
-(keymap-set doc-view-fix-scroll-mode-map "<wheel-up>" 'mwheel-scroll)
-(define-minor-mode doc-view-fix-scroll-mode
-  "Fix mouse wheel scrolling in DocView"
-  :keymap doc-view-fix-scroll-mode-map)
-
 ;;; Other files:
 (push "~/.emacs.d/lisp" load-path)
 (load "drag-buffer")
@@ -231,7 +223,7 @@
   :defer t
   :hook ((doc-view-mode .
 			(lambda ()
-			  (doc-view-fix-scroll-mode t)))))
+			  (override-precision-scroll-mode t)))))
 (use-package js
   :bind (:map js-ts-mode-map
 	      ("C-x C-e" . replete-browser)

@@ -23,3 +23,10 @@
 (advice-add 'tab-line-hscroll-right :around #'filter-mwheel-always-coalesce)
 (advice-add 'flymake--mode-line-counter-scroll-next :around #'filter-mwheel-always-coalesce)
 (advice-add 'flymake--mode-line-counter-scroll-prev :around #'filter-mwheel-always-coalesce)
+
+(defvar override-precision-scroll-mode-map (make-sparse-keymap))
+(keymap-set override-precision-scroll-mode-map "<wheel-down>" 'mwheel-scroll)
+(keymap-set override-precision-scroll-mode-map "<wheel-up>" 'mwheel-scroll)
+(define-minor-mode override-precision-scroll-mode
+  "Override precision scroll mode keymap"
+  :keymap override-precision-scroll-mode-map)
