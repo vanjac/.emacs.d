@@ -21,6 +21,7 @@
  '(dired-recursive-copies 'always)
  '(dired-recursive-deletes 'always)
  '(display-line-numbers-width 4)
+ '(doc-view-continuous t)
  '(ediff-grab-mouse nil)
  '(ediff-split-window-function 'split-window-horizontally)
  '(ediff-window-setup-function 'ediff-setup-windows-plain)
