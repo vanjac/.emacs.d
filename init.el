@@ -131,6 +131,7 @@
   (interactive)
   (find-file (make-temp-file "scratch")))
 (defun git-diff ()
+  "Show diff between working tree and staging area."
   (interactive)
   (let ((bufname "*git-diff*"))
     (when (get-buffer bufname)
