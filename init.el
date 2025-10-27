@@ -210,6 +210,7 @@
 (keymap-global-set "C-c <delete>" 'delete-pair)
 (keymap-global-set "C-c t" 'visit-temp-file)
 (keymap-global-set "C-c s" 'shell)
+(keymap-global-set "C-c e" 'eshell)
 (keymap-global-set "C-c f" 'recentf-open) ;; same as Crux
 (keymap-global-set "C-c c" 'quick-calc)
 (keymap-global-set "C-/" project-prefix-map)
