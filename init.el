@@ -73,6 +73,7 @@
  '(shell-command-prompt-show-cwd t)
  '(tab-line-close-button-show nil)
  '(tab-line-exclude-modes '(completion-list-mode ediff-mode))
+ '(tcl-application "tclsh")
  '(tool-bar-mode nil)
  '(treesit-font-lock-level 4)
  '(use-package-compute-statistics t)
