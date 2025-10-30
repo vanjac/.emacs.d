@@ -128,6 +128,15 @@
 (push '("\\.rs\\'" . rust-ts-mode) auto-mode-alist)
 
 ;;; Commands:
+(defun insert-surrounding-spaces ()
+  (interactive)
+  (let (deactivate-mark)
+    (save-excursion
+      (goto-char (region-beginning))
+      (insert " "))
+    (save-excursion
+      (goto-char (region-end))
+      (insert-before-markers " "))))
 (defun visit-temp-file ()
   (interactive)
   (find-file (make-temp-file "scratch")))
@@ -208,6 +217,7 @@
 (keymap-global-set "C-<tab>" 'previous-buffer)
 (keymap-global-set "C-<iso-lefttab>" 'next-buffer)
 (keymap-global-set "C-c <delete>" 'delete-pair)
+(keymap-global-set "C-c SPC" 'insert-surrounding-spaces)
 (keymap-global-set "C-c t" 'visit-temp-file)
 (keymap-global-set "C-c s" 'shell)
 (keymap-global-set "C-c e" 'eshell)
