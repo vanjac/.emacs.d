@@ -56,10 +56,9 @@
  '(mouse-wheel-scroll-amount
    '(3 ((shift) . hscroll) ((meta)) ((control meta) . global-text-scale)
        ((control) . text-scale)))
+ '(mouse-wheel-tilt-scroll t)
  '(org-support-shift-select t)
  '(package-selected-packages '(corfu dape gptel iedit markdown-mode nhexl-mode))
- '(pixel-scroll-precision-interpolate-mice nil)
- '(pixel-scroll-precision-mode t)
  '(project-mode-line t)
  '(project-vc-merge-submodules nil)
  '(recentf-mode t)
@@ -110,7 +109,6 @@
 (when (eq system-type 'gnu/linux)
   ;; note: must be installed in ~/.terminfo !
   (setopt comint-terminfo-terminal "dumb-emacs-term-color")
-  (setopt mouse-wheel-tilt-scroll t)
   (setopt mouse-wheel-flip-direction t))
 (when (eq system-type 'windows-nt)
   ;; Add GNU utilities to path
@@ -232,7 +230,6 @@
 ;;; Other files:
 (push "~/.emacs.d/lisp" load-path)
 (load "drag-buffer")
-(load "fix-precision-scroll")
 
 ;;; Built-in:
 (use-package dired
@@ -244,11 +241,6 @@
 (use-package project
   :config
   (push '(project-dired "Dired") project-switch-commands))
-(use-package doc-view
-  :defer t
-  :hook ((doc-view-mode .
-			(lambda ()
-			  (override-precision-scroll-mode t)))))
 (use-package js
   :bind (:map js-ts-mode-map
 	      ("C-x C-e" . replete-browser)
