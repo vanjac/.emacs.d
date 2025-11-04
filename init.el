@@ -223,6 +223,8 @@
 (keymap-global-set "C-c c" 'quick-calc)
 (keymap-global-set "C-/" project-prefix-map)
 (keymap-global-set "C-/ n" 'set-frame-name-project)
+(keymap-global-set "C-/ 4" 'project-other-window-command)
+(keymap-global-set "C-/ 5" 'project-other-frame-command)
 (keymap-global-set "S-<down-mouse-1>" 'mouse-save-then-kill) ;; https://superuser.com/a/522183
 (keymap-global-set "S-<mouse-1>" 'ignore-preserving-kill-region)
 (keymap-global-set "<mode-line> C-<mouse-1>" 'tear-off-window)
