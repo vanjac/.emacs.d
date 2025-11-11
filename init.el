@@ -231,6 +231,7 @@
 ;;; Other files:
 (push "~/.emacs.d/lisp" load-path)
 (load "drag-buffer")
+(load "custom-comint")
 
 ;;; Built-in:
 (use-package dired
