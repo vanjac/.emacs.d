@@ -206,6 +206,10 @@
 (add-hook 'overwrite-mode-hook
 	  (lambda ()
 	    (setq-local cursor-type (if overwrite-mode 'box 'bar))))
+(add-hook 'term-mode-hook
+	  (lambda ()
+	    (setq-local global-hl-line-mode nil)
+	    (setq-local cursor-type 'box)))
 
 ;;; Key bindings:
 (keymap-global-set "C-z" 'undo)
