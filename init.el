@@ -124,6 +124,7 @@
 (push '("\\.ya?ml\\'" . yaml-ts-mode) auto-mode-alist)
 (push '("\\.lua\\'" . lua-ts-mode) auto-mode-alist)
 (push '("\\.rs\\'" . rust-ts-mode) auto-mode-alist)
+(push '("\\.go\\'" . go-ts-mode) auto-mode-alist)
 
 ;;; Commands:
 (defun insert-surrounding-spaces ()
