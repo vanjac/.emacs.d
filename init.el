@@ -230,7 +230,6 @@
 (keymap-global-set "C-c SPC" 'insert-surrounding-spaces)
 (keymap-global-set "C-c t" 'visit-temp-file)
 (keymap-global-set "C-c s" 'shell)
-(keymap-global-set "C-c e" 'eshell)
 (keymap-global-set "C-c c" 'quick-calc)
 (keymap-global-set "C-/" project-prefix-map)
 (keymap-global-set "C-/ n" 'set-frame-name-project)
