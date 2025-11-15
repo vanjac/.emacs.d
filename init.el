@@ -219,6 +219,10 @@
 ;;; Menus:
 (keymap-set-after menu-bar-file-menu "<temp-file>"
   '("Temporary File" . visit-temp-file) 'new-file)
+(keymap-set-after menu-bar-shell-commands-menu "<eshell>"
+  '("Eshell" . eshell))
+(keymap-set-after menu-bar-shell-commands-menu "<term>"
+  '("Terminal Emulator" . ansi-term))
 
 ;;; Key bindings:
 (keymap-global-set "C-z" 'undo)
