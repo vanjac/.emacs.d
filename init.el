@@ -211,6 +211,10 @@
 	    (setq-local global-hl-line-mode nil)
 	    (setq-local cursor-type 'box)))
 
+;;; Menus:
+(keymap-set-after menu-bar-file-menu "<temp-file>"
+  '("Temporary File" . visit-temp-file) 'new-file)
+
 ;;; Key bindings:
 (keymap-global-set "C-z" 'undo)
 (keymap-global-set "C-S-z" 'undo-redo)
@@ -241,6 +245,8 @@
 (use-package dired
   :bind (:map dired-mode-map
 	      ("<mouse-2>" . dired-mouse-find-file))
+  :config (keymap-set-after dired-mode-immediate-menu "<find-name>"
+	    '("Find Name Recursively..." . find-name-dired) 'Isearch\ Regexp\ in\ File\ Names...)
   :hook ((dired-mode .
 		     (lambda ()
 		       (setq truncate-lines t)))))
