@@ -219,6 +219,8 @@
 ;;; Menus:
 (keymap-set-after menu-bar-file-menu "<temp-file>"
   '("Temporary File" . visit-temp-file) 'new-file)
+(keymap-set-after menu-bar-file-menu "<rename-file>"
+  '("Move To..." . rename-visited-file) 'write-file)
 (keymap-set-after menu-bar-shell-commands-menu "<eshell>"
   '("Eshell" . eshell))
 (keymap-set-after menu-bar-shell-commands-menu "<term>"
