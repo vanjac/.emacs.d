@@ -219,6 +219,8 @@
 ;;; Menus:
 (keymap-set-after menu-bar-file-menu "<temp-file>"
   '("Temporary File" . visit-temp-file) 'new-file)
+(keymap-set-after menu-bar-file-menu "<dir-jump-external>"
+  '("Show in Folder" . dir-jump-external) 'project-dired)
 (keymap-set-after menu-bar-file-menu "<rename-file>"
   '("Move To..." . rename-visited-file) 'write-file)
 (keymap-set-after menu-bar-shell-commands-menu "<eshell>"
@@ -230,7 +232,6 @@
 (keymap-global-set "C-z" 'undo)
 (keymap-global-set "C-S-z" 'undo-redo)
 (keymap-global-set "C-x k" 'kill-current-buffer)
-(keymap-global-set "C-x C-S-j" 'dir-jump-external)
 (keymap-global-set "C-<tab>" 'previous-buffer)
 (keymap-global-set "C-<iso-lefttab>" 'next-buffer)
 (keymap-global-set "C-c <delete>" 'delete-pair)
