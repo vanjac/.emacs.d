@@ -225,6 +225,9 @@
   '("Show in Folder" . dir-jump-external) 'project-dired)
 (keymap-set-after menu-bar-file-menu "<rename-file>"
   '("Move To..." . rename-visited-file) 'write-file)
+(keymap-unset menu-bar-file-menu "<make-tab>")
+(keymap-unset menu-bar-file-menu "<close-tab>")
+(keymap-unset menu-bar-file-menu "<separator-tab>")
 (keymap-set-after menu-bar-shell-commands-menu "<eshell>"
   '("Eshell" . eshell))
 (keymap-set-after menu-bar-shell-commands-menu "<term>"
