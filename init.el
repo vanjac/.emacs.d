@@ -104,6 +104,12 @@
 		(innamespace . 0)
 		(label . 0))
 	       ))
+(setq frame-title-format
+      '(""
+	(:eval (let ((project (project-current)))
+		 (when project
+		   (format "%s - " (project-name project)))))
+	"%b"))
 
 ;;; Platform-specific:
 (when (eq system-type 'gnu/linux)
@@ -166,10 +172,6 @@
   (interactive)
   (replete-start (project-root (project-current t)))
   (switch-to-buffer-other-window replete-buffer))
-(defun set-frame-name-project (arg)
-  (interactive "P")
-  (set-frame-name (unless arg
-		      (concat "<" (project-name (project-current)) ">"))))
 (defun project-delete-frame ()
   (interactive)
   (if (project-kill-buffers)
@@ -240,7 +242,6 @@
 (keymap-global-set "C-c s" 'shell)
 (keymap-global-set "C-c c" 'quick-calc)
 (keymap-global-set "C-/" project-prefix-map)
-(keymap-global-set "C-/ n" 'set-frame-name-project)
 (keymap-global-set "C-/ 4" 'project-other-window-command)
 (keymap-global-set "C-/ 5" 'project-other-frame-command)
 (keymap-global-set "C-/ 0" 'project-delete-frame)
