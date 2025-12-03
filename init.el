@@ -10,6 +10,7 @@
    '((java-mode . "java") (awk-mode . "awk") (other . "chroma")))
  '(column-number-mode t)
  '(comint-scroll-show-maximum-output nil)
+ '(completion-styles '(flex))
  '(context-menu-mode t)
  '(cursor-type 'bar)
  '(custom-enabled-themes '(modus-operandi))
@@ -29,8 +30,6 @@
  '(eglot-ignored-server-capabilities '(:documentOnTypeFormattingProvider))
  '(eldoc-echo-area-prefer-doc-buffer t)
  '(electric-pair-mode t)
- '(fido-mode t)
- '(fido-vertical-mode t)
  '(frame-resize-pixelwise t)
  '(gdb-many-windows t)
  '(gdb-non-stop-setting nil)
@@ -58,7 +57,7 @@
        ((control) . text-scale)))
  '(mouse-wheel-tilt-scroll t)
  '(org-support-shift-select t)
- '(package-selected-packages '(corfu dape gptel iedit markdown-mode nhexl-mode))
+ '(package-selected-packages '(corfu dape gptel iedit markdown-mode nhexl-mode vertico))
  '(project-mode-line t)
  '(project-vc-merge-submodules nil)
  '(recentf-mode t)
@@ -275,6 +274,11 @@
 	      ("C-c /" . jsdoc-skeleton)))
 
 ;;; Installed:
+(use-package vertico
+  :custom
+  (vertico-mouse-mode t)
+  :init
+  (vertico-mode))
 (use-package corfu
   :custom
   (corfu-auto t)
