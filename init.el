@@ -30,6 +30,7 @@
  '(eglot-ignored-server-capabilities '(:documentOnTypeFormattingProvider))
  '(eldoc-echo-area-prefer-doc-buffer t)
  '(electric-pair-mode t)
+ '(enable-recursive-minibuffers t)
  '(frame-resize-pixelwise t)
  '(gdb-many-windows t)
  '(gdb-non-stop-setting nil)
@@ -50,6 +51,7 @@
  '(locate-update-when-revert t)
  '(make-backup-files nil)
  '(mark-even-if-inactive nil)
+ '(minibuffer-depth-indicate-mode t)
  '(mode-line-percent-position nil)
  '(mouse-wheel-progressive-speed nil)
  '(mouse-wheel-scroll-amount
