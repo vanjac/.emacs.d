@@ -60,6 +60,7 @@
  '(package-selected-packages '(corfu dape gptel iedit markdown-mode nhexl-mode vertico))
  '(project-mode-line t)
  '(project-vc-merge-submodules nil)
+ '(read-extended-command-predicate 'command-completion-default-include-p)
  '(recentf-mode t)
  '(register-use-preview nil)
  '(ring-bell-function 'flash-mode-line)
