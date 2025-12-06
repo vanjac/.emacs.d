@@ -287,9 +287,9 @@
   (corfu-auto t)
   (corfu-popupinfo-mode t)
   (corfu-popupinfo-delay '(0.5 . 0.5))
-  :hook ((eglot-managed-mode . corfu-mode)
-	 (mhtml-mode . corfu-mode)
-	 (css-ts-mode . corfu-mode)))
+  :hook ((prog-mode . corfu-mode)
+	 (comint-mode . corfu-mode)
+	 (sgml-mode . corfu-mode)))
 (use-package iedit)
 (use-package iedit-rect)
 (use-package markdown-mode
