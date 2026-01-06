@@ -74,6 +74,7 @@
  '(shell-command-prompt-show-cwd t)
  '(tab-line-close-button-show nil)
  '(tab-line-exclude-modes '(completion-list-mode ediff-mode))
+ '(tab-line-tab-name-function 'tab-line-tab-name-truncated-buffer)
  '(tcl-application "tclsh")
  '(tool-bar-mode nil)
  '(treesit-font-lock-level 4)
