@@ -29,6 +29,7 @@
  '(editorconfig-mode t)
  '(eglot-ignored-server-capabilities '(:documentOnTypeFormattingProvider))
  '(eldoc-echo-area-prefer-doc-buffer t)
+ '(eldoc-minor-mode-string nil)
  '(electric-pair-mode t)
  '(enable-recursive-minibuffers t)
  '(frame-resize-pixelwise t)
@@ -107,6 +108,7 @@
 		(innamespace . 0)
 		(label . 0))
 	       ))
+(setq-default mode-line-buffer-identification `(-32 . ,(propertized-buffer-identification "%12b")))
 (setq frame-title-format
       '(""
 	(:eval (let ((project (project-current)))
@@ -274,6 +276,10 @@
 (use-package project
   :config
   (push '(project-dired "Dired") project-switch-commands))
+(use-package vc-git
+  :defer t
+  :config
+  (defun vc-git-mode-line-string (file) "Git"))
 (use-package js
   :bind (:map js-ts-mode-map
 	      ("C-x C-e" . replete-browser)
@@ -300,7 +306,6 @@
   :custom
   (markdown-enable-wiki-links t))
 (use-package nhexl-mode
-  :defer t
   :init (setq nhexl--put-LF-in-string t) ; nhexl layout bug
   :bind (:map nhexl-mode-map
 	      ("C-c ." . nhexl-nibble-edit-mode)))
