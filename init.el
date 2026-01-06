@@ -124,7 +124,9 @@
   (setenv "PATH" (concat "C:\\Program Files\\Git\\usr\\bin;" (getenv "PATH")))
   (push "c:/Program Files/Git/usr/bin" exec-path)
   (setenv "PYTHONUNBUFFERED" "1")
-  (keymap-global-set "<right-fringe> C-<mouse-2>" 'mouse-split-window-vertically))
+  (keymap-global-set "<right-fringe> C-<mouse-2>" 'mouse-split-window-vertically)
+  ;; Broken on Windows:
+  (fmakunbound 'pcomplete/git))
 
 ;;; Mode overrides:
 (push '("\\.m?js\\'" . js-ts-mode) auto-mode-alist)
