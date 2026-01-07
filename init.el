@@ -150,7 +150,7 @@
       (insert-before-markers " "))))
 (defun visit-temp-file ()
   (interactive)
-  (find-file (make-temp-file "scratch")))
+  (find-file (make-temp-file "scratch-")))
 (defun git-diff ()
   "Show diff between working tree and staging area."
   (interactive)
