@@ -108,7 +108,6 @@
 		(innamespace . 0)
 		(label . 0))
 	       ))
-(setq-default mode-line-buffer-identification `(-32 . ,(propertized-buffer-identification "%12b")))
 (setq frame-title-format
       '(""
 	(:eval (let ((project (project-current)))
@@ -235,8 +234,6 @@
 (keymap-unset menu-bar-file-menu "<make-tab>")
 (keymap-unset menu-bar-file-menu "<close-tab>")
 (keymap-unset menu-bar-file-menu "<separator-tab>")
-(keymap-set-after menu-bar-shell-commands-menu "<eshell>"
-  '("Eshell" . eshell))
 (keymap-set-after menu-bar-shell-commands-menu "<term>"
   '("Terminal Emulator" . ansi-term))
 
