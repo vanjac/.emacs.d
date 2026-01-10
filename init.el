@@ -243,6 +243,7 @@
 (keymap-global-set "C-x k" 'kill-current-buffer)
 (keymap-global-set "C-<tab>" 'previous-buffer)
 (keymap-global-set "C-<iso-lefttab>" 'next-buffer)
+(keymap-global-set "C-S-<tab>" 'next-buffer)
 (keymap-global-set "C-c <delete>" 'delete-pair)
 (keymap-global-set "C-c SPC" 'insert-surrounding-spaces)
 (keymap-global-set "C-c t" 'visit-temp-file)
