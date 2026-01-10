@@ -15,25 +15,11 @@
  '(delete-by-moving-to-trash t)
  '(delete-pair-blink-delay 0)
  '(delete-selection-mode t)
- '(dired-listing-switches "-al --group-directories-first")
- '(dired-mouse-drag-files 'move)
- '(dired-recursive-copies 'always)
- '(dired-recursive-deletes 'always)
  '(display-line-numbers-width 4)
- '(doc-view-continuous t)
- '(ediff-grab-mouse nil)
- '(ediff-split-window-function 'split-window-horizontally)
- '(ediff-window-setup-function 'ediff-setup-windows-plain)
  '(editorconfig-mode t)
- '(eglot-ignored-server-capabilities '(:documentOnTypeFormattingProvider))
- '(eldoc-echo-area-prefer-doc-buffer t)
- '(eldoc-minor-mode-string nil)
  '(electric-pair-mode t)
  '(enable-recursive-minibuffers t)
  '(frame-resize-pixelwise t)
- '(gdb-many-windows t)
- '(gdb-non-stop-setting nil)
- '(gdb-restore-window-configuration-after-quit 'if-gdb-many-windows)
  '(global-auto-revert-mode t)
  '(global-auto-revert-non-file-buffers t)
  '(global-hl-line-mode t)
@@ -41,13 +27,10 @@
  '(global-tab-line-mode t)
  '(global-whitespace-mode t)
  '(highlight-nonselected-windows t)
- '(icon-map-list nil)
  '(initial-buffer-choice 'messages-buffer)
  '(initial-scratch-message "")
  '(isearch-allow-scroll 'unlimited)
  '(isearch-lazy-count t)
- '(locate-update-path "/sudo::")
- '(locate-update-when-revert t)
  '(make-backup-files nil)
  '(mark-even-if-inactive nil)
  '(minibuffer-depth-indicate-mode t)
@@ -57,10 +40,7 @@
    '(3 ((shift) . hscroll) ((meta)) ((control meta) . global-text-scale)
        ((control) . text-scale)))
  '(mouse-wheel-tilt-scroll t)
- '(org-support-shift-select t)
  '(package-selected-packages '(corfu dape gptel iedit markdown-mode nhexl-mode vertico))
- '(project-mode-line t)
- '(project-vc-merge-submodules nil)
  '(read-extended-command-predicate 'command-completion-default-include-p)
  '(recentf-mode t)
  '(register-use-preview nil)
@@ -74,9 +54,7 @@
  '(tab-line-close-button-show nil)
  '(tab-line-exclude-modes '(completion-list-mode ediff-mode))
  '(tab-line-tab-name-function 'tab-line-tab-name-truncated-buffer)
- '(tcl-application "tclsh")
  '(tool-bar-mode nil)
- '(treesit-font-lock-level 4)
  '(use-package-compute-statistics t)
  '(use-package-verbose t)
  '(whitespace-global-modes '(prog-mode))
@@ -252,18 +230,65 @@
 (use-package dired
   :bind (:map dired-mode-map
 	      ("<mouse-2>" . dired-mouse-find-file))
-  :config (keymap-set-after dired-mode-immediate-menu "<find-name>"
-	    '("Find Name Recursively..." . find-name-dired) 'Isearch\ Regexp\ in\ File\ Names...)
+  :config
+  (keymap-set-after dired-mode-immediate-menu "<find-name>"
+    '("Find Name Recursively..." . find-name-dired) 'Isearch\ Regexp\ in\ File\ Names...)
+  :custom
+  (dired-listing-switches "-al --group-directories-first")
+  (dired-mouse-drag-files 'move)
+  (dired-recursive-copies 'always)
+  (dired-recursive-deletes 'always)
   :hook ((dired-mode .
 		     (lambda ()
 		       (setq truncate-lines t)))))
 (use-package project
   :config
-  (push '(project-dired "Dired") project-switch-commands))
+  (push '(project-dired "Dired") project-switch-commands)
+  :custom
+  (project-mode-line t)
+  (project-vc-merge-submodules nil))
+(use-package treesit
+  :defer t
+  :custom
+  (treesit-font-lock-level 4))
+(use-package eldoc
+  :defer t
+  :custom
+  (eldoc-echo-area-prefer-doc-buffer t)
+  (eldoc-minor-mode-string nil))
+(use-package eglot
+  :defer t
+  :custom
+  (eglot-ignored-server-capabilities '(:documentOnTypeFormattingProvider)))
 (use-package vc-git
   :defer t
   :config
   (defun vc-git-mode-line-string (file) "Git"))
+(use-package ediff
+  :defer t
+  :custom
+  (ediff-grab-mouse nil)
+  (ediff-split-window-function 'split-window-horizontally)
+  (ediff-window-setup-function 'ediff-setup-windows-plain))
+(use-package gdb-mi
+  :defer t
+  :custom
+  (gdb-many-windows t)
+  (gdb-non-stop-setting nil)
+  (gdb-restore-window-configuration-after-quit 'if-gdb-many-windows))
+(use-package locate
+  :defer t
+  :custom
+  (locate-update-path "/sudo::")
+  (locate-update-when-revert t))
+(use-package doc-view
+  :defer t
+  :custom
+  (doc-view-continuous t))
+(use-package org
+  :defer t
+  :custom
+  (org-support-shift-select t))
 (use-package cc-mode
   :defer t
   :config
@@ -283,6 +308,10 @@
   :bind (:map js-ts-mode-map
 	      ("C-x C-e" . replete-browser)
 	      ("C-c /" . jsdoc-skeleton)))
+(use-package tcl
+  :defer t
+  :custom
+  (tcl-application "tclsh"))
 
 ;;; Installed:
 (use-package vertico
