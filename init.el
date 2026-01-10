@@ -74,7 +74,6 @@
 
 ;;; Additional (manual) customization:
 (setq-default electric-indent-inhibit t)
-(put 'mhtml-mode 'flyspell-mode-predicate #'sgml-mode-flyspell-verify)
 (setq frame-title-format
       '(""
 	(:eval (let ((project (project-current)))
@@ -182,10 +181,6 @@
 (add-hook 'overwrite-mode-hook
 	  (lambda ()
 	    (setq-local cursor-type (if overwrite-mode 'box 'bar))))
-(add-hook 'term-mode-hook
-	  (lambda ()
-	    (setq-local global-hl-line-mode nil)
-	    (setq-local cursor-type 'box)))
 
 ;;; Menus:
 (keymap-set-after menu-bar-file-menu "<temp-file>"
@@ -199,6 +194,7 @@
 (keymap-unset menu-bar-file-menu "<separator-tab>")
 (keymap-set-after menu-bar-shell-commands-menu "<term>"
   '("Terminal Emulator" . ansi-term))
+;; TODO: locate
 
 ;;; Key bindings:
 (keymap-global-set "C-z" 'undo)
@@ -270,6 +266,12 @@
   (ediff-grab-mouse nil)
   (ediff-split-window-function 'split-window-horizontally)
   (ediff-window-setup-function 'ediff-setup-windows-plain))
+(use-package term
+  :defer t
+  :hook ((term-mode .
+		    (lambda ()
+		      (setq-local global-hl-line-mode nil)
+		      (setq-local cursor-type 'box)))))
 (use-package gdb-mi
   :defer t
   :custom
@@ -308,6 +310,10 @@
   :bind (:map js-ts-mode-map
 	      ("C-x C-e" . replete-browser)
 	      ("C-c /" . jsdoc-skeleton)))
+(use-package mhtml-mode
+  :defer t
+  :config
+  (put 'mhtml-mode 'flyspell-mode-predicate #'sgml-mode-flyspell-verify))
 (use-package tcl
   :defer t
   :custom
