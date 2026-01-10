@@ -192,9 +192,10 @@
 (keymap-unset menu-bar-file-menu "<make-tab>")
 (keymap-unset menu-bar-file-menu "<close-tab>")
 (keymap-unset menu-bar-file-menu "<separator-tab>")
+(keymap-set-after menu-bar-tools-menu "<locate>"
+  '("Locate..." . locate) 'rgrep)
 (keymap-set-after menu-bar-shell-commands-menu "<term>"
   '("Terminal Emulator" . ansi-term))
-;; TODO: locate
 
 ;;; Key bindings:
 (keymap-global-set "C-z" 'undo)
