@@ -6,8 +6,6 @@
  ;; If there is more than one, they won't work right.
  '(auto-revert-verbose nil)
  '(backward-delete-char-untabify-method nil)
- '(c-default-style
-   '((java-mode . "java") (awk-mode . "awk") (other . "chroma")))
  '(column-number-mode t)
  '(comint-scroll-show-maximum-output nil)
  '(completion-styles '(flex))
@@ -99,15 +97,6 @@
 ;;; Additional (manual) customization:
 (setq-default electric-indent-inhibit t)
 (put 'mhtml-mode 'flyspell-mode-predicate #'sgml-mode-flyspell-verify)
-(c-add-style "chroma"
-	     '((indent-tabs-mode . t)
-	       (c-basic-offset . 4)
-	       (c-offsets-alist
-		(arglist-cont-nonempty . +)
-		(arglist-close . 0)
-		(innamespace . 0)
-		(label . 0))
-	       ))
 (setq frame-title-format
       '(""
 	(:eval (let ((project (project-current)))
@@ -275,6 +264,21 @@
   :defer t
   :config
   (defun vc-git-mode-line-string (file) "Git"))
+(use-package cc-mode
+  :defer t
+  :config
+  (c-add-style "chroma"
+	       '((indent-tabs-mode . t)
+		 (c-basic-offset . 4)
+		 (c-offsets-alist
+		  (arglist-cont-nonempty . +)
+		  (arglist-close . 0)
+		  (innamespace . 0)
+		  (label . 0))
+		 ))
+  :custom
+  (c-default-style
+   '((java-mode . "java") (awk-mode . "awk") (other . "chroma"))))
 (use-package js
   :bind (:map js-ts-mode-map
 	      ("C-x C-e" . replete-browser)
