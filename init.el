@@ -107,15 +107,14 @@
 (push '("\\.go\\'" . go-ts-mode) auto-mode-alist)
 
 ;;; Commands:
-(defun insert-surrounding-spaces ()
-  (interactive)
+(defun insert-surrounding-spaces (start end)
+  (interactive "r")
   (let (deactivate-mark)
     (save-excursion
-      (goto-char (region-beginning))
-      (insert " "))
-    (save-excursion
-      (goto-char (region-end))
-      (insert-before-markers " "))))
+      (goto-char end)
+      (insert-before-markers " ")
+      (goto-char start)
+      (insert " "))))
 (defun visit-temp-file ()
   (interactive)
   (find-file (make-temp-file "scratch-")))
