@@ -216,7 +216,6 @@
 (keymap-global-set "M-<down>" 'duplicate-forward)
 (keymap-global-set "C-c <delete>" 'delete-pair)
 (keymap-global-set "C-c SPC" 'insert-surrounding-spaces)
-(keymap-global-set "C-c r" 'eglot-rename)
 (keymap-global-set "C-c t" 'visit-temp-file)
 (keymap-global-set "C-c s" 'shell)
 (keymap-global-set "C-c c" 'quick-calc)
@@ -265,7 +264,8 @@
   (eldoc-echo-area-prefer-doc-buffer t)
   (eldoc-minor-mode-string nil))
 (use-package eglot
-  :defer t
+  :bind (:map eglot-mode-map
+	      ("C-c r" . eglot-rename))
   :custom
   (eglot-ignored-server-capabilities '(:documentOnTypeFormattingProvider)))
 (use-package vc-git
