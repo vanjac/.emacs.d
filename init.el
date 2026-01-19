@@ -107,6 +107,11 @@
 (push '("\\.go\\'" . go-ts-mode) auto-mode-alist)
 
 ;;; Commands:
+(defun duplicate-forward (n)
+  (interactive "p")
+  (let ((duplicate-line-final-position -1)
+	(duplicate-region-final-position -1))
+    (duplicate-dwim n)))
 (defun insert-surrounding-spaces (start end)
   (interactive "r")
   (let (deactivate-mark)
@@ -207,6 +212,8 @@
 (keymap-global-set "C-S-<tab>" 'next-buffer)
 (keymap-global-set "C-c <delete>" 'delete-pair)
 (keymap-global-set "C-c SPC" 'insert-surrounding-spaces)
+(keymap-global-set "M-<up>" 'duplicate-dwim)
+(keymap-global-set "M-<down>" 'duplicate-forward)
 (keymap-global-set "C-c t" 'visit-temp-file)
 (keymap-global-set "C-c s" 'shell)
 (keymap-global-set "C-c c" 'quick-calc)
