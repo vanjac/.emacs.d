@@ -109,6 +109,8 @@
 ;;; Commands:
 (defun duplicate-forward (n)
   (interactive "p")
+  (defvar duplicate-line-final-position)
+  (defvar duplicate-region-final-position)
   (let ((duplicate-line-final-position -1)
 	(duplicate-region-final-position -1))
     (duplicate-dwim n)))
