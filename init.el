@@ -20,6 +20,7 @@
  '(electric-pair-mode t)
  '(enable-recursive-minibuffers t)
  '(frame-resize-pixelwise t)
+ '(global-auto-revert-ignore-modes '(Buffer-menu-mode))
  '(global-auto-revert-mode t)
  '(global-auto-revert-non-file-buffers t)
  '(global-hl-line-mode t)
