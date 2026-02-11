@@ -56,6 +56,7 @@
  '(shell-command-prompt-show-cwd t)
  '(tab-line-close-button-show nil)
  '(tab-line-exclude-modes '(completion-list-mode ediff-mode))
+ '(tab-line-tab-name-format-function 'tab-line-fix-tooltips)
  '(tab-line-tab-name-function 'tab-line-tab-name-truncated-buffer)
  '(tool-bar-mode nil)
  '(use-package-compute-statistics t)
@@ -157,6 +158,12 @@
   "Visual bell function from EmacsWiki"
   (invert-face 'mode-line)
   (run-with-timer 0.1 nil #'invert-face 'mode-line))
+(defun tab-line-fix-tooltips (tab tabs)
+  "Show full buffer name in tab tooltips."
+  (propertize (tab-line-tab-name-format-default tab tabs)
+	      'help-echo (if (bufferp tab)
+			     (buffer-name tab)
+			   (cdr (assq 'name tab)))))
 ;; from: https://endlessparentheses.com/ansi-colors-in-the-compilation-buffer-output.html
 (defun colorize-compilation ()
   "Colorize from `compilation-filter-start' to `point'."
