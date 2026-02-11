@@ -99,9 +99,8 @@
   (fmakunbound 'pcomplete/git))
 
 ;;; Mode overrides:
-(push '("\\.m?js\\'" . js-ts-mode) auto-mode-alist)
+(push '("\\.mjs\\'" . js-mode) auto-mode-alist)
 (push '("\\.ts\\'" . typescript-ts-mode) auto-mode-alist)
-(push '("\\.css\\'" . css-ts-mode) auto-mode-alist)
 (push '("\\.ya?ml\\'" . yaml-ts-mode) auto-mode-alist)
 (push '("\\.lua\\'" . lua-ts-mode) auto-mode-alist)
 (push '("\\.rs\\'" . rust-ts-mode) auto-mode-alist)
@@ -320,7 +319,7 @@
   (c-default-style
    '((java-mode . "java") (awk-mode . "awk") (other . "chroma"))))
 (use-package js
-  :bind (:map js-ts-mode-map
+  :bind (:map js-base-mode-map
 	      ("C-x C-e" . replete-browser)
 	      ("C-c /" . jsdoc-skeleton)))
 (use-package mhtml-mode
