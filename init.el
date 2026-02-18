@@ -10,7 +10,6 @@
  '(comint-scroll-show-maximum-output nil)
  '(completion-styles '(flex))
  '(context-menu-mode t)
- '(cursor-type 'bar)
  '(custom-enabled-themes '(modus-operandi))
  '(delete-by-moving-to-trash t)
  '(delete-pair-blink-delay 0)
@@ -193,9 +192,6 @@
 (add-hook 'emacs-lisp-mode-hook
 	  (lambda ()
 	    (setq tab-width 8)))
-(add-hook 'overwrite-mode-hook
-	  (lambda ()
-	    (setq-local cursor-type (if overwrite-mode 'box 'bar))))
 
 ;;; Menus:
 (keymap-set-after menu-bar-file-menu "<temp-file>"
@@ -291,8 +287,7 @@
   :defer t
   :hook ((term-mode .
 		    (lambda ()
-		      (setq-local global-hl-line-mode nil)
-		      (setq-local cursor-type 'box)))))
+		      (setq-local global-hl-line-mode nil)))))
 (use-package gdb-mi
   :defer t
   :custom
