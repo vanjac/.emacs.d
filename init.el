@@ -171,7 +171,7 @@
      compilation-filter-start (point))))
 
 (define-skeleton jsdoc-skeleton "Insert JSDoc comment" nil
-  "/**" _ "*/")
+  "/** " _ " */")
 
 ;;; Enabled commands:
 (put 'set-goal-column 'disabled nil)
