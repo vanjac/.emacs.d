@@ -245,6 +245,8 @@
   :bind (:map dired-mode-map
 	      ("<mouse-2>" . dired-mouse-find-file))
   :config
+  ;; prompt to kill buffers when deleting:
+  (require 'dired-x)
   (keymap-set-after dired-mode-immediate-menu "<find-name>"
     '("Find Name Recursively..." . find-name-dired) 'Isearch\ Regexp\ in\ File\ Names...)
   :custom
