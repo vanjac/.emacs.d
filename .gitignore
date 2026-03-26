@@ -4,3 +4,5 @@
 !/lisp/
 !/lisp/*
 /lisp/default.el
+!/.terminfo/
+!/.terminfo/*
