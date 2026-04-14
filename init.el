@@ -249,7 +249,6 @@
     '("Find Name Recursively..." . find-name-dired) 'Isearch\ Regexp\ in\ File\ Names...)
   :custom
   (dired-listing-switches "-al --group-directories-first")
-  (dired-mouse-drag-files 'move)
   (dired-recursive-copies 'always)
   (dired-recursive-deletes 'always)
   :hook ((dired-mode .
