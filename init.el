@@ -108,6 +108,7 @@
 (push '("\\.go\\'" . go-ts-mode) auto-mode-alist)
 (push '("CMakeLists\\.txt\\'" . cmake-ts-mode) auto-mode-alist)
 (push '("\\.cmake\\'" . cmake-ts-mode) auto-mode-alist)
+(push '("\\.hex\\'" . m4-mode) auto-mode-alist)
 
 ;;; Commands:
 (defun duplicate-forward (n)
