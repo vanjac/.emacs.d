@@ -1,8 +1,4 @@
 *
-!.gitignore
-!init.el
 !/lisp/
 !/lisp/*
 /lisp/default.el
-!/.terminfo/
-!/.terminfo/*
