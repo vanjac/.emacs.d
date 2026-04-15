@@ -145,6 +145,7 @@
 (defun dir-jump-external ()
   (interactive)
   (let ((path (or buffer-file-name (expand-file-name default-directory))))
+    ;; TODO: Add Windows support
     (when (eq system-type 'gnu/linux)
       (call-process "gdbus" nil 0 nil "call" "--session"
 		    "--dest" file-manager-dbus-name
@@ -236,6 +237,7 @@
 
 ;;; Other files:
 (push "~/.emacs.d/lisp" load-path)
+(load "mode-menu")
 (load "drag-buffer")
 (load "custom-comint")
 (load "replete-config")
