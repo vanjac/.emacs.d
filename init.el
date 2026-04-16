@@ -146,14 +146,16 @@
 (defun dir-jump-external ()
   (interactive)
   (let ((path (or buffer-file-name (expand-file-name default-directory))))
-    ;; TODO: Add Windows support
     (when (eq system-type 'gnu/linux)
       (call-process "gdbus" nil 0 nil "call" "--session"
 		    "--dest" file-manager-dbus-name
 		    "--object-path" "/org/freedesktop/FileManager1"
 		    "--method" "org.freedesktop.FileManager1.ShowItems"
 		    (concat "['file://" path "']")
-		    ""))))
+		    ""))
+    (when (eq system-type 'windows-nt)
+      (call-process "explorer" nil 0 nil
+		    "/select," (subst-char-in-string ?/ ?\\ path)))))
 (defun project-delete-frame ()
   (interactive)
   (if (project-kill-buffers)
