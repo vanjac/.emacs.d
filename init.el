@@ -97,8 +97,10 @@
   (push "c:/Program Files/Git/usr/bin" exec-path)
   (setenv "PYTHONUNBUFFERED" "1")
   (keymap-global-set "<right-fringe> C-<mouse-2>" 'mouse-split-window-vertically)
-  ;; Broken on Windows:
-  (fmakunbound 'pcomplete/git))
+  (fmakunbound 'pcomplete/git)		; Broken on Windows
+  (add-hook 'shell-mode-hook
+	    (lambda ()
+	      (setq shell-dirstack-query "cd"))))
 
 ;;; Mode overrides:
 (push '("\\.mjs\\'" . js-mode) auto-mode-alist)
