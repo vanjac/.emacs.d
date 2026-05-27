@@ -41,8 +41,7 @@
        ((control) . text-scale)))
  '(mouse-wheel-tilt-scroll t)
  '(org-modules '(ol-info org-mouse))
- '(package-selected-packages
-   '(corfu dape gptel iedit markdown-mode nhexl-mode org-contrib vertico))
+ '(package-selected-packages '(corfu dape gptel iedit markdown-mode nhexl-mode vertico))
  '(read-buffer-completion-ignore-case t)
  '(read-extended-command-predicate 'command-completion-default-include-p)
  '(read-file-name-completion-ignore-case t)
