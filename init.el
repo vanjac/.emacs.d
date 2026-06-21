@@ -312,7 +312,8 @@
 (use-package speedbar
   :defer t
   :custom
-  (speedbar-show-unknown-files t))
+  (speedbar-show-unknown-files t)
+  (speedbar-query-confirmation-method 'none-but-delete))
 (use-package doc-view
   :defer t
   :custom
