@@ -244,7 +244,6 @@
 (push "~/.emacs.d/lisp" load-path)
 (load "mode-menu")
 (load "drag-buffer")
-(load "custom-comint")
 (load "replete-config")
 
 ;;; Built-in:
