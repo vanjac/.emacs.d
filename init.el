@@ -18,6 +18,7 @@
  '(editorconfig-mode t)
  '(electric-pair-mode t)
  '(enable-recursive-minibuffers t)
+ '(fill-column 100)
  '(frame-resize-pixelwise t)
  '(global-auto-revert-ignore-modes '(Buffer-menu-mode))
  '(global-auto-revert-mode t)
@@ -37,8 +38,7 @@
  '(mode-line-percent-position nil)
  '(mouse-wheel-progressive-speed nil)
  '(mouse-wheel-scroll-amount
-   '(3 ((shift) . hscroll) ((meta)) ((control meta) . global-text-scale)
-       ((control) . text-scale)))
+   '(3 ((shift) . hscroll) ((meta)) ((control meta) . global-text-scale) ((control) . text-scale)))
  '(mouse-wheel-tilt-scroll t)
  '(org-modules '(ol-info org-mouse))
  '(package-selected-packages
@@ -65,8 +65,8 @@
  '(whitespace-global-modes '(prog-mode))
  '(whitespace-line-column 100)
  '(whitespace-style
-   '(face trailing tabs lines missing-newline-at-eof empty indentation
-	  space-after-tab space-before-tab tab-mark))
+   '(face trailing tabs lines missing-newline-at-eof empty indentation space-after-tab space-before-tab
+	  tab-mark))
  '(window-divider-mode t)
  '(window-resize-pixelwise t)
  '(winner-mode t))
