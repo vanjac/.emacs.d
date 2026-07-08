@@ -332,6 +332,7 @@
 		  (arglist-cont-nonempty . +)
 		  (arglist-close . 0)
 		  (innamespace . 0)
+		  (inextern-lang . 0)
 		  (label . 0))
 		 ))
   :custom
