@@ -8,6 +8,7 @@
  '(backward-delete-char-untabify-method nil)
  '(column-number-mode t)
  '(comint-scroll-show-maximum-output nil)
+ '(compilation-always-kill t)
  '(completion-styles '(flex))
  '(context-menu-mode t)
  '(custom-enabled-themes '(modus-operandi))
