@@ -375,3 +375,8 @@
   :init (setq nhexl--put-LF-in-string t) ; nhexl layout bug
   :bind (:map nhexl-mode-map
 	      ("C-c ." . nhexl-nibble-edit-mode)))
+
+;;; External
+(use-package midi-hex
+  :load-path "~/code/midic"
+  :mode ("\\.hex\\'" . midi-hex-mode))
