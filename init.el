@@ -64,7 +64,7 @@
  '(use-package-compute-statistics t)
  '(use-package-verbose t)
  '(whitespace-global-modes '(prog-mode))
- '(whitespace-line-column 100)
+ '(whitespace-line-column nil)
  '(whitespace-style
    '(face trailing tabs lines missing-newline-at-eof empty indentation space-after-tab space-before-tab
 	  tab-mark))
