@@ -233,6 +233,7 @@
 (keymap-global-set "C-c s" 'shell)
 (keymap-global-set "C-c c" 'quick-calc)
 (keymap-global-set "C-/" project-prefix-map)
+(keymap-global-unset "C-?")
 (keymap-global-set "C-/ 4" 'project-other-window-command)
 (keymap-global-set "C-/ 5" 'project-other-frame-command)
 (keymap-global-set "C-/ 0" 'project-delete-frame)
