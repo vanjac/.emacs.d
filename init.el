@@ -219,9 +219,9 @@
   '("Terminal Emulator" . ansi-term))
 
 ;;; Key bindings:
-(keymap-global-set "C-z" 'undo)
+(keymap-global-set "C-z" 'undo)		; prev: suspend-frame
 (keymap-global-set "C-S-z" 'undo-redo)
-(keymap-global-set "C-x k" 'kill-current-buffer)
+(keymap-global-set "C-x k" 'kill-current-buffer) ; prev: kill-buffer
 (keymap-global-set "C-<tab>" 'previous-buffer)
 (keymap-global-set "C-<iso-lefttab>" 'next-buffer)
 (keymap-global-set "C-S-<tab>" 'next-buffer)
@@ -232,14 +232,15 @@
 (keymap-global-set "C-c t" 'visit-temp-file)
 (keymap-global-set "C-c s" 'shell)
 (keymap-global-set "C-c c" 'quick-calc)
-(keymap-global-set "C-/" project-prefix-map)
-(keymap-global-unset "C-?")
+(keymap-global-set "C-/" project-prefix-map) ; prev: undo
+(keymap-global-unset "C-?")		     ; prev: undo-redo
 (keymap-global-set "C-/ 4" 'project-other-window-command)
 (keymap-global-set "C-/ 5" 'project-other-frame-command)
 (keymap-global-set "C-/ 0" 'project-delete-frame)
 (keymap-global-set "<f5>" 'recompile)
 (keymap-global-set "<f6>" 'speedbar-get-focus)
-(keymap-global-set "S-<down-mouse-1>" 'mouse-save-then-kill) ;; https://superuser.com/a/522183
+;; https://superuser.com/a/522183
+(keymap-global-set "S-<down-mouse-1>" 'mouse-save-then-kill) ; prev: mouse-appearance-menu
 (keymap-global-set "S-<mouse-1>" 'ignore-preserving-kill-region)
 (keymap-global-set "<mode-line> C-<mouse-1>" 'tear-off-window)
 
