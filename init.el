@@ -363,6 +363,7 @@
   (corfu-auto t)
   (corfu-popupinfo-mode t)
   (corfu-popupinfo-delay '(0.5 . 0.5))
+  (corfu-mouse-mode t)
   :hook ((prog-mode . corfu-mode)
 	 (comint-mode . corfu-mode)
 	 (sgml-mode . corfu-mode)))
