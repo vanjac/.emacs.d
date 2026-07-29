@@ -1,0 +1,7 @@
+My personal Emacs config. Currently using Emacs 30, on Linux and Windows.
+
+Interesting things:
+
+- [[file:lisp/drag-buffer.el][drag-buffer.el]]: Allow moving buffers between windows/frames by dragging from the mode line.
+- [[file:init.el::defun visit-temp-file (][visit-temp-file]]: Quickly open a new temporary "scratch" file. I use this very frequently.
+- [[file:init.el::defun dir-jump-external (][dir-jump-external]]: Open OS-native file browser to the containing folder, with the current file selected.
