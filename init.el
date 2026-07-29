@@ -232,6 +232,9 @@
 (keymap-global-set "C-c t" 'visit-temp-file)
 (keymap-global-set "C-c s" 'shell)
 (keymap-global-set "C-c c" 'quick-calc)
+;; [[info:org#Activation]]
+(keymap-global-set "C-c l" 'org-store-link)
+(keymap-global-set "C-c o" 'org-open-at-point-global)
 (keymap-global-set "C-/" project-prefix-map) ; prev: undo
 (keymap-global-unset "C-?")		     ; prev: undo-redo
 (keymap-global-set "C-/ 4" 'project-other-window-command)
