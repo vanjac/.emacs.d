@@ -293,6 +293,10 @@
   :defer t
   :config
   (defun vc-git-mode-line-string (file) "Git"))
+(use-package imenu
+  :defer t
+  :custom
+  (imenu-auto-rescan t))
 (use-package ediff
   :defer t
   :custom
