@@ -31,7 +31,7 @@
  '(global-whitespace-mode t)
  '(highlight-nonselected-windows t)
  '(initial-buffer-choice 'messages-buffer)
- '(initial-scratch-message "")
+ '(initial-scratch-message nil)
  '(isearch-allow-scroll 'unlimited)
  '(isearch-lazy-count t)
  '(make-backup-files nil)
