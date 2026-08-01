@@ -232,9 +232,6 @@
 (keymap-global-set "C-c t" 'visit-temp-file)
 (keymap-global-set "C-c s" 'shell)
 (keymap-global-set "C-c c" 'quick-calc)
-;; [[info:org#Activation]]
-(keymap-global-set "C-c l" 'org-store-link)
-(keymap-global-set "C-c o" 'org-open-at-point-global)
 (keymap-global-set "C-/" project-prefix-map) ; prev: undo
 (keymap-global-unset "C-?")		     ; prev: undo-redo
 (keymap-global-set "C-/ 4" 'project-other-window-command)
@@ -331,7 +328,10 @@
 (use-package org
   :defer t
   :custom
-  (org-support-shift-select t))
+  (org-support-shift-select t)
+  ;; [[info:org#Activation]]
+  :bind (("C-c l" . org-store-link)
+	 ("C-c o" . org-open-at-point-global)))
 (use-package cc-mode
   :defer t
   :config
