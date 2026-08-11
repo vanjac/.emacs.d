@@ -6,7 +6,7 @@
   (mouse-drag-buffer-impl event nil))
 (defun mouse-move-buffer (event)
   "Drag the buffer name in the mode line to another window or a new frame.
-   Close the buffer in the previous window"
+Close the buffer in the previous window"
   (interactive "e")
   (mouse-drag-buffer-impl event t))
 (defun mouse-drag-buffer-impl (event move)
