@@ -102,7 +102,7 @@
   (fmakunbound 'pcomplete/git)		; Broken on Windows
   (add-hook 'shell-mode-hook
 	    (lambda ()
-	      (setq shell-dirstack-query "cd"))))
+	      (setf shell-dirstack-query "cd"))))
 
 ;;; Mode overrides:
 (push '("\\.mjs\\'" . js-mode) auto-mode-alist)
@@ -199,10 +199,10 @@
 	  (lambda ()
 	    (display-line-numbers-mode 1)
 	    (visual-wrap-prefix-mode 1)
-	    (setq tab-width 4)))
+	    (setf tab-width 4)))
 (add-hook 'emacs-lisp-mode-hook
 	  (lambda ()
-	    (setq tab-width 8)))
+	    (setf tab-width 8)))
 
 ;;; Menus:
 (keymap-set-after menu-bar-file-menu "<temp-file>"
@@ -266,7 +266,7 @@
   (dired-recursive-deletes 'always)
   :hook ((dired-mode .
 		     (lambda ()
-		       (setq truncate-lines t)))))
+		       (setf truncate-lines t)))))
 (use-package project
   :config
   (push '(project-dired "Dired") project-switch-commands)
@@ -384,7 +384,7 @@
   :custom
   (markdown-enable-wiki-links t))
 (use-package nhexl-mode
-  :init (setq nhexl--put-LF-in-string t) ; nhexl layout bug
+  :init (setf nhexl--put-LF-in-string t) ; nhexl layout bug
   :bind (:map nhexl-mode-map
 	      ("C-c ." . nhexl-nibble-edit-mode)))
 

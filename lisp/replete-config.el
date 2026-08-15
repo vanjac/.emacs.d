@@ -5,7 +5,7 @@
   :load-path "~/code/Replete/plugins/emacs"
   :commands replete-start
   :config
-  (setq replete-default-command
+  (setf replete-default-command
 	(list
 	 "node"
 	 (expand-file-name "~/code/Replete/replete.js")
