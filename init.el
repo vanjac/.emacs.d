@@ -293,7 +293,9 @@
 (use-package vc-git
   :defer t
   :config
-  (defun vc-git-mode-line-string (file) "Git"))
+  (defun vc-git-mode-line-string (file) "Git")
+  (keymap-set vc-git-extra-menu-map "<git-diff>"
+	      '("Compare Tree with Index" . git-diff)))
 (use-package imenu
   :defer t
   :custom
