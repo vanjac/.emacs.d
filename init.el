@@ -95,9 +95,9 @@
   (setopt mouse-wheel-flip-direction t))
 (when (eq system-type 'windows-nt)
   ;; Add GNU utilities to path
-  (setenv "PATH" (concat "C:\\Program Files\\Git\\usr\\bin;" (getenv "PATH")))
+  (setf (getenv "PATH") (concat "C:\\Program Files\\Git\\usr\\bin;" (getenv "PATH")))
   (push "c:/Program Files/Git/usr/bin" exec-path)
-  (setenv "PYTHONUNBUFFERED" "1")
+  (setf (getenv "PYTHONUNBUFFERED") "1")
   (keymap-global-set "<right-fringe> C-<mouse-2>" 'mouse-split-window-vertically)
   (fmakunbound 'pcomplete/git)		; Broken on Windows
   (add-hook 'shell-mode-hook
