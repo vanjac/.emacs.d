@@ -214,6 +214,9 @@
 (keymap-unset menu-bar-file-menu "<make-tab>")
 (keymap-unset menu-bar-file-menu "<close-tab>")
 (keymap-unset menu-bar-file-menu "<separator-tab>")
+(keymap-unset menu-bar-file-menu "<make-frame-on-display>")
+(keymap-unset menu-bar-file-menu "<make-frame-on-monitor>")
+(keymap-unset menu-bar-file-menu "<undelete-frame-mode>")
 (keymap-set-after menu-bar-tools-menu "<locate>"
   '("Locate..." . locate) 'rgrep)
 (keymap-set-after menu-bar-shell-commands-menu "<term>"
