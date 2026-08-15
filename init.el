@@ -80,13 +80,13 @@
  '(default ((t (:family "Iosevka Fixed" :foundry "UKWN" :slant normal :weight regular :height 120 :width normal)))))
 
 ;;; Additional (manual) customization:
-(setq-default electric-indent-inhibit t)
-(setq frame-title-format
-      '(""
-	(:eval (let ((project (project-current)))
-		 (when project
-		   (format "%s - " (project-name project)))))
-	"%b"))
+(setopt electric-indent-inhibit t)
+(setopt frame-title-format
+	'(""
+	  (:eval (let ((project (project-current)))
+		   (when project
+		     (format "%s - " (project-name project)))))
+	  "%b"))
 
 ;;; Platform-specific:
 (when (eq system-type 'gnu/linux)
