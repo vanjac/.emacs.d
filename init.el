@@ -12,7 +12,6 @@
  '(compilation-scroll-output t)
  '(completion-styles '(flex))
  '(context-menu-mode t)
- '(custom-enabled-themes '(modus-operandi))
  '(delete-by-moving-to-trash t)
  '(delete-pair-blink-delay 0)
  '(delete-selection-mode t)
