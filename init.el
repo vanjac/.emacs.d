@@ -288,6 +288,7 @@
   :bind (:map eglot-mode-map
 	      ("C-c r" . eglot-rename))
   :custom
+  (eglot-autoshutdown t)
   (eglot-ignored-server-capabilities '(:documentOnTypeFormattingProvider)))
 (use-package vc-git
   :defer t
