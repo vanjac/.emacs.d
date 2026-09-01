@@ -97,6 +97,7 @@
   (setf (getenv "PATH") (concat "C:\\Program Files\\Git\\usr\\bin;" (getenv "PATH")))
   (push "c:/Program Files/Git/usr/bin" exec-path)
   (setf (getenv "PYTHONUNBUFFERED") "1")
+  (keymap-global-set "M-<f4>" 'delete-frame)
   (keymap-global-set "<right-fringe> C-<mouse-2>" 'mouse-split-window-vertically)
   (fmakunbound 'pcomplete/git)		; Broken on Windows
   (add-hook 'shell-mode-hook
