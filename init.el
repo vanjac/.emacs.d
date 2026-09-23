@@ -272,12 +272,8 @@
 		     (lambda ()
 		       (setf truncate-lines t)))))
 (use-package project
-  :config
-  (push '(project-dired "Dired") project-switch-commands)
-  (keymap-set-after menu-bar-project-menu "<project-delete-frame>"
-    '("Close Project Frame" . project-delete-frame) 'project-kill-buffers)
   :custom
-  (project-mode-line t)
+  (project-switch-commands 'project-vc-dir)
   (project-vc-merge-submodules nil))
 (use-package treesit
   :defer t
