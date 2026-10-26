@@ -335,6 +335,7 @@
   :defer t
   :custom
   (org-support-shift-select t)
+  (org-export-backends '(html md))
   ;; [[info:org#Activation]]
   :bind (("C-c l" . org-store-link)
 	 ("C-c o" . org-open-at-point-global)))
