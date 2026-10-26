@@ -396,4 +396,4 @@
 ;;; External
 (use-package midi-hex
   :load-path "~/code/midic"
-  :mode ("\\.hex\\'" . midi-hex-mode))
+  :mode ("\\.mhex\\'" . midi-hex-mode))
