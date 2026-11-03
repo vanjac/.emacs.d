@@ -81,10 +81,10 @@
 (setopt electric-indent-inhibit t)
 (setopt frame-title-format
 	'(""
-	  (:eval (let ((project (project-current)))
-		   (when project
-		     (format "%s - " (project-name project)))))
+	  (:eval (when-let ((project (project-current)))
+		   (format "%s - " (project-name project))))
 	  "%b"))
+(setopt icon-title-format frame-title-format)
 
 ;;; Platform-specific:
 (when (eq system-type 'gnu/linux)
