@@ -65,8 +65,7 @@
  '(whitespace-global-modes '(prog-mode))
  '(whitespace-line-column nil)
  '(whitespace-style
-   '(face trailing tabs lines missing-newline-at-eof empty indentation space-after-tab space-before-tab
-	  tab-mark))
+   '(face trailing tabs lines missing-newline-at-eof empty indentation space-after-tab space-before-tab))
  '(window-divider-mode t)
  '(window-resize-pixelwise t)
  '(winner-mode t))
@@ -75,7 +74,8 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(default ((t (:family "Iosevka Fixed" :foundry "UKWN" :slant normal :weight regular :height 120 :width normal)))))
+ '(default ((t (:family "Iosevka Fixed" :foundry "UKWN" :slant normal :weight regular :height 120 :width normal))))
+ '(whitespace-tab ((t (:underline (:color foreground-color :style dots :position nil))))))
 
 ;;; Additional (manual) customization:
 (setopt electric-indent-inhibit t)
